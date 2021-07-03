@@ -1,0 +1,100 @@
+.Login {
+    width: 20%;
+    height: 100%;
+    float: left;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    position: relative;
+
+    border-bottom: none;
+    /*display: inline-block;*/
+
+    background-color: green;
+}
+
+.loginButton {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Login:hover {
+    background: green;
+}
+
+.dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    /*background: lightgreen;*/
+    /*color: darkblue;*/
+    /*width: 1000px;*/
+    /*font-weight: 900;*/
+}
+
+.Login > ul > li {
+    position: relative;
+    cursor: pointer;
+    float: left;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    background: grey;
+    display: none;
+}
+
+.dropdown li:hover {
+    background: green;
+}
+
+.Login:hover .dropdown{
+    display: block;
+    /*perspective: 1000px;*/
+}
+
+.Login li:hover > .dropdown li{
+    transform-origin: top center;
+    opacity: 0;
+    display: block;
+}
+
+.Login li:hover > .dropdown li:nth-child(1) {
+    animation: animate 300ms ease-in-out forwards;
+    animation-delay: -150ms;
+}
+.Login li:hover > .dropdown li:nth-child(2) {
+    animation: animate 300ms ease-in-out forwards;
+    animation-delay: 0ms;
+}
+.Login li:hover > .dropdown li:nth-child(3) {
+    animation: animate 300ms ease-in-out forwards;
+    animation-delay: 150ms;
+}
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    70% {
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}

@@ -1,0 +1,35 @@
+.DropDownMenu {
+    width: 100%;
+    height: 100%;
+}
+
+/*select, select > option{*/
+/*    color: black;*/
+/*    width: 100%;*/
+/*    background: darkgrey;*/
+/*    appearance: none;*/
+/*    border: 0;*/
+/*    padding: 0em 1em 0em 1em;*/
+/*}*/
+
+/*.DropDownMenu > span::after{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*    background: darkgrey;*/
+/*}*/
+
+@media screen and (min-width: 760px) {
+    .DropDownMenu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 759px) {
+    .DropDownMenu {
+        width: 30%;
+        float: left;
+        background-color: inherit;
+    }
+}

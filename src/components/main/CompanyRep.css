@@ -1,0 +1,26 @@
+.CompanyRep {
+    height: 30px;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    background-color: darkgrey;
+    padding: 5px;
+    margin: 1vh;
+}
+.CompanyRep:hover {
+    box-shadow: 2px 2px 2px green;
+}
+
+
+.CompanyRep > div{
+    border-bottom: none;
+    display: flex;
+}
+
+.CompanyRep > .nameComp{
+    width: 50%;
+}
+
+.CompanyRep > .emailComp{
+    width: 50%;
+}
