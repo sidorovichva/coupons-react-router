@@ -39,8 +39,17 @@
     align-items: center;
 }
 
-.actions > .delete{
-    width: 33%;
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: inherit;
+    font-size: 0.75rem;
+}
+
+.actions > .Link{
+    width: 50%;
     height: 100%;
     display: flex;
     border: none;
@@ -49,7 +58,22 @@
     align-items: center;
 }
 
-.actions > div:hover{
+.actions > .delete{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions > div:hover {
+    background-color: green;
+    color: white;
+}
+
+.actions > .Link:hover {
     background-color: green;
     color: white;
 }

@@ -65,11 +65,3 @@
         display: none;
     }
 }
-
-@media screen and (max-width: 759px) {
-    .DropDownMenu {
-        width: 30%;
-        float: left;
-        background-color: inherit;
-    }
-}
