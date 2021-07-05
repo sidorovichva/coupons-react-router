@@ -1,16 +1,15 @@
 import { useEffect} from 'react';
 import axios from "axios";
 import {useDispatch} from "react-redux";
-import {closeWindow} from "../redux/PopUpWindowsSlicer";
 import {authorize} from "../redux/LoginSlice";
-import {coupons} from "../redux/MainScreenSlicer";
-import {reset} from "../redux/AxiosSlicer";
-import {resetLogin} from "../redux/axios/AxiosLoginSlice";
+import {useHistory} from "react-router-dom";
 
 const useLogin = (body: string) => {
 
-    //const index = 'https://coupons-back-mysql-jwt.herokuapp.com/login';
-    const index = 'http://localhost:8080/login';
+    const index = 'https://coupons-back-mysql-jwt.herokuapp.com/login';
+    //const index = 'http://localhost:8080/login';
+
+    const history = useHistory();
 
     const dispatch = useDispatch();
 
@@ -35,6 +34,7 @@ const useLogin = (body: string) => {
             config
         )
             .then(res => {
+                console.log("useLogin")
                 if (res.status !== 200) {
                     throw Error("the data couldn't be fetched")
                 }
@@ -58,13 +58,15 @@ const useLogin = (body: string) => {
                         emailValue: localStorage.getItem("Username"),
                         roleValue: localStorage.getItem("Role")
                     }))
-                    dispatch(resetLogin());
-                    dispatch(coupons())
+                    //dispatch(resetLogin());
+                    //dispatch(coupons())
                 } else {
                     console.log("authorization failed")
                 }
-                dispatch(reset())
-                dispatch(closeWindow());
+                //dispatch(reset())
+                //dispatch(closeWindow());
+                history.push('/');
+                history.go(0)
             })
 
         return () => abort.abort();

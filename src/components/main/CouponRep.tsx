@@ -2,23 +2,24 @@ import './CouponRep.css';
 import {CouponInt} from "../../interfaces/CouponInt";
 import {useDispatch, useSelector} from "react-redux";
 import ConfigureStore from "../../redux/StoreConfig";
-import {useState} from "react";
-import UpdateCoupon from "../UpdateCoupon";
-import {openWindow} from "../../redux/PopUpWindowsSlicer";
+import React, {useState} from "react";
 import Delete from "./actions/Delete";
 import Add from "./actions/Add";
+import {useLocation, useHistory, Link} from "react-router-dom";
+import {setCouponBean} from "../../redux/UpdateBeanSlice";
 
 const CouponRep = (coupon: CouponInt) => {
 
-    console.log("       CouponRep " + coupon)
+    const location = useLocation().pathname
 
     const {role} = useSelector((state) => ConfigureStore.getState().LoginSlice);
-    const { updateCoupon } = useSelector((state) => ConfigureStore.getState().PopUpWindowsSlicer);
-    const { title } = useSelector((state) => ConfigureStore.getState().MainScreenSlicer);
     const dispatch = useDispatch();
 
-    const [bought, setBought] = useState<boolean>(false);
-    //const [deleted, setDeleted] = useState<boolean>(false);
+    // const { updateCoupon } = useSelector((state) => ConfigureStore.getState().PopUpWindowsSlicer);
+    // const { title } = useSelector((state) => ConfigureStore.getState().MainScreenSlicer);
+    // const dispatch = useDispatch();
+
+    const history = useHistory();
 
     const [isToBuy, setIsToBuy] = useState<boolean>(false);
     const [buyLink] = useState('/purchases');
@@ -27,11 +28,13 @@ const CouponRep = (coupon: CouponInt) => {
     const handleBuy = () => {
         setBody(JSON.stringify(coupon.id));
         setIsToBuy(true);
-        setBought(true);
+        history.go(0);
     };
 
     const handleUpdate = () => {
-        dispatch(openWindow({stateName: 'updateCoupon'}))
+        dispatch(setCouponBean({
+           couponBeanValue: coupon
+        }))
     }
 
     const [isToDelete, setIsToDelete] = useState<boolean>(false);
@@ -39,10 +42,9 @@ const CouponRep = (coupon: CouponInt) => {
     const [deleteLink, setDeleteLink] = useState<string>('');
 
     const handleDelete = () => {
-        console.log("del")
         setDeleteLink(linkToDelete + '/' + coupon.id);
         setIsToDelete(true);
-        //setDeleted(true);
+        history.go(0);
     }
 
     return (
@@ -53,12 +55,15 @@ const CouponRep = (coupon: CouponInt) => {
             <div className="endDate">{coupon.endDate}</div>
             <div className="price">{coupon.price}</div>
             <div className="actions">
-                {role === 'CUSTOMER' && !bought && title !== 'My coupons' && <div className="buy" onClick={handleBuy}>Buy</div>}
-                {role === 'COMPANY' && <div className="update" onClick={handleUpdate}>Update</div>}
+                {location === '/customer_coupons/not' && <div className="buy" onClick={handleBuy}>Buy</div>}
+                {/*{role === 'COMPANY' && <div className="update" onClick={handleUpdate}>Update</div>}*/}
+                {/*{role === 'COMPANY' && <Link className="Link" to={`/update_coupon/${coupon.id}`} onClick={handleUpdate}>Update</Link>}*/}
+                {/*{role === 'COMPANY' && <Link className="Link" to={'/update_coupon/' + coupon.id}  onClick={handleUpdate}>Update</Link>}*/}
+                {role === 'COMPANY' && <Link className="Link" to='/update_coupon' onClick={handleUpdate}>Update</Link>}
                 {role === 'COMPANY' && <div className="delete" onClick={ handleDelete }>Delete</div>}
             </div>
             {isToBuy && <Add link={buyLink} body={body} />}
-            {updateCoupon && <UpdateCoupon coupon={ coupon } />}
+            {/*{updateCoupon && <UpdateCoupon coupon={ coupon } />}*/}
             {isToDelete && <Delete link={deleteLink} />}
         </div>
     );

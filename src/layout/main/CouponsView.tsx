@@ -6,18 +6,16 @@ import useFetch from "../../hooks/useFetch";
 
 const CouponsView = (): JSX.Element => {
 
-    const { data: coupons, error } = useFetch('/');
+    const { data: coupons } = useFetch('/');
 
     return (
         <div className="CouponsView">
-            <h1 className="title">All Coupons</h1>
             {coupons.map((coupon: CouponInt) => (
                     <div key={ coupon.id }>
                         <CouponRep {...coupon}/>
                     </div>
                 )
             )}
-            <div className="message">{ error }</div>
         </div>
     );
 }

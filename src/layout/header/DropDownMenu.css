@@ -1,24 +1,64 @@
 .DropDownMenu {
-    width: 100%;
+    width: 60%;
     height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    border-bottom: none;
+    /*display: inline-block;*/
 }
 
-/*select, select > option{*/
-/*    color: black;*/
-/*    width: 100%;*/
-/*    background: darkgrey;*/
-/*    appearance: none;*/
-/*    border: 0;*/
-/*    padding: 0em 1em 0em 1em;*/
-/*}*/
+.DropDownMenu:hover {
+    background: green;
+}
 
-/*.DropDownMenu > span::after{*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    width: 0;*/
-/*    height: 0;*/
-/*    background: darkgrey;*/
-/*}*/
+.dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    /*background: lightgreen;*/
+    /*color: darkblue;*/
+    /*width: 1000px;*/
+    /*font-weight: 900;*/
+}
+
+.DropDownMenu > ul > .Link {
+    position: relative;
+    cursor: pointer;
+    float: left;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    background: grey;
+    display: none;
+}
+
+.dropdown .Link:hover {
+    background: green;
+}
+
+.DropDownMenu:hover .dropdown{
+    display: block;
+    /*perspective: 1000px;*/
+}
+
+.DropDownMenu .Link:hover > .dropdown .Link{
+    transform-origin: top center;
+    opacity: 0;
+    display: block;
+}
 
 @media screen and (min-width: 760px) {
     .DropDownMenu {

@@ -8,7 +8,9 @@ interface Props {
 
 const Add: React.FC<Props> = ({link, body}) => {
 
-    usePost(link, body)
+    usePost(link, body);
+
+    console.log(body);
 
     return (
         <div className="Add">

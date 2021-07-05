@@ -16,10 +16,11 @@
 }
 
 .center {
-    width: 100%;
+    width: 99%;
     height: 80%;
     display: flex;
     justify-content: center;
+    overflow-y: auto;
 }
 
 .bottom {

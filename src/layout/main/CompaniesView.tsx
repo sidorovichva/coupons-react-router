@@ -2,12 +2,11 @@ import React from 'react';
 import './CompaniesView.css';
 import {CompanyInt} from "../../interfaces/CompanyInt";
 import CompanyRep from "../../components/main/CompanyRep";
+import useFetch from "../../hooks/useFetch";
 
-interface Props {
-    companies: []
-}
+const CompaniesView = (): JSX.Element => {
 
-const CompaniesView: React.FC<Props> = ({ companies}): JSX.Element => {
+    const { data: companies } = useFetch('/companies');
 
     return (
         <div className="CompaniesView">

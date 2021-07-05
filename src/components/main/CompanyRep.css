@@ -24,3 +24,28 @@
 .CompanyRep > .emailComp{
     width: 50%;
 }
+
+.CompanyRep > .actions {
+    width: 15%;
+    height: 100%;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+}
+
+.actions > .delete{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions > div:hover{
+    background-color: green;
+    color: white;
+}

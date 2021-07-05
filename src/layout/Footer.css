@@ -1,11 +1,17 @@
 .Footer {
-    background-color: black;
     border-top: 2px solid green;
-
     display: flex;
     flex-direction:row;
     align-items: center;
     justify-content: space-evenly;
     background-color: inherit;
-    color: black;
+    /*color: inherit;*/
+    font-size: 0.75rem;
 }
+
+@media screen and (max-width: 759px) {
+    .Footer > .separator {
+        display: none;
+    }
+}
+

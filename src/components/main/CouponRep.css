@@ -62,6 +62,16 @@
     justify-content: center;
     align-items: center;
 }
+.actions > .Link{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .actions > .delete{
     width: 33%;

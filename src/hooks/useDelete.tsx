@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import AxiosConfig from "../axios/AxiosConfig";
+import {setRequestMessage} from "../redux/RequestMessageSlice";
+import {useDispatch} from "react-redux";
+//import {useHistory} from "react-router-dom";
 
 const useDelete = (link: string) => {
 
@@ -7,33 +10,37 @@ const useDelete = (link: string) => {
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
+    //const history = useHistory();
 
-        const abort = new AbortController();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
 
         AxiosConfig.delete(link)
             .then(response => {
-                if (response.status !== 200) {
-                    throw Error("the data couldn't be fetched")
-                }
-                console.log(response)
+                dispatch(setRequestMessage({
+                    messageValue: response.data
+                }));
                 return response;
             })
             .then((response) => {
+                if (response.data) {
+                    dispatch(setRequestMessage({
+                        messageValue: response.data,
+                    }));
+                }
                 setData(response.data);
                 setIsPending(false);
-                setError(null);
+                // history.push('/');
             })
             .catch((err) => {
-                if (err.name === 'AbortError') {
-                    console.log('fetch aborted');
-                } else {
-                    setError(err.message);
-                    setIsPending(false);
+                if (err.response.data) {
+                    dispatch(setRequestMessage({
+                        messageValue: err.response.data,
+                    }));
                 }
+                setIsPending(false);
             })
-
-        return () => abort.abort();
 
     }, [link]);
 

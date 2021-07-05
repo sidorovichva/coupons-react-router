@@ -1,18 +1,13 @@
 import React from 'react';
-import {closeWindow} from "../../redux/PopUpWindowsSlicer";
-import {useDispatch} from "react-redux";
 import './FormSubmit.css';
+import { useHistory } from "react-router-dom";
 
-interface Props {
+const FormSubmit = () => {
 
-}
-
-const FormSubmit: React.FC<Props> = () => {
-
-    const dispatch = useDispatch();
+    const history = useHistory();
 
     const cancel = () => {
-        dispatch(closeWindow())
+        history.go(1)
     }
 
     return (

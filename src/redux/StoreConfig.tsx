@@ -9,7 +9,10 @@ import CouponSlicerReducer from "./CouponSlicer";
 import DataSlicerReducer from "./DataSlicer";
 import AxiosLoginSliceReducer from "./axios/AxiosLoginSlice";
 import DataStorageReducer from "./DataStorageSlice";
-import RequestErrorSliceReducer from "./RequestErrorSlice"
+import RequestMessageSliceReducer from "./RequestMessageSlice"
+import ResponseStatusReducer from "./ResponseStatusSlice"
+import HistoryPushReducer from "./HistoryPushSlice"
+import UpdateBeanReducer from "./UpdateBeanSlice";
 
 export default configureStore({
     reducer: {
@@ -23,6 +26,9 @@ export default configureStore({
         DataSlicer: DataSlicerReducer,
         AxiosLoginSlice: AxiosLoginSliceReducer,
         DataStorageSlice: DataStorageReducer,
-        RequestErrorSlice: RequestErrorSliceReducer
+        RequestMessageSlice: RequestMessageSliceReducer,
+        ResponseStatusSlice: ResponseStatusReducer,
+        HistoryPushSlice: HistoryPushReducer,
+        UpdateBeanSlice: UpdateBeanReducer
     }
 });

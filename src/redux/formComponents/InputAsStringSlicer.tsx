@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const InputAsStringSlicer = createSlice({
     name: "InputAsStringSlicer",
     initialState: {
+        numericInput: 0.00,
         value: '',
         field: ''
     },
@@ -12,11 +13,17 @@ export const InputAsStringSlicer = createSlice({
             state.value = valueValue;
             state.field = fieldValue;
         },
+        setNumericValue: (state, action) => {
+            const { numericInputValue, fieldValue } = action.payload;
+            state.numericInput = numericInputValue;
+            state.field = fieldValue;
+        },
     }
 });
 
 export const {
-    use
+    use,
+    setNumericValue
 } = InputAsStringSlicer.actions;
 
 export default InputAsStringSlicer.reducer;

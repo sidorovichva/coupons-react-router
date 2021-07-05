@@ -3,10 +3,9 @@ import './About.css';
 
 const About = (): JSX.Element => {
 
-
     return (
         <div className="About">
-            INFO
+            <div>INFO</div>
         </div>
     );
 }

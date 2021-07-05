@@ -20,23 +20,23 @@
     justify-content: space-evenly;
 }
 
-.submitButton {
-    width: 40%;
-    height: 60%;
-    background-color: green;
-    cursor: pointer;
-    color: white;
-    border: none;
-}
+/*.submitButton {*/
+/*    width: 40%;*/
+/*    height: 60%;*/
+/*    background-color: green;*/
+/*    cursor: pointer;*/
+/*    color: white;*/
+/*    border: none;*/
+/*}*/
 
-.cancelButton {
-    width: 40%;
-    height: 60%;
-    background-color: red;
-    cursor: pointer;
-    color: white;
-    border: none;
-}
+/*.cancelButton {*/
+/*    width: 40%;*/
+/*    height: 60%;*/
+/*    background-color: red;*/
+/*    cursor: pointer;*/
+/*    color: white;*/
+/*    border: none;*/
+/*}*/
 
 /*.AddCustomer {*/
 /*    position: fixed;*/

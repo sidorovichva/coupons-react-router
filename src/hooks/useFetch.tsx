@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import AxiosConfig from "../axios/AxiosConfig";
-import axios from "axios";
+import {useDispatch} from "react-redux";
+import {setRequestMessage} from "../redux/RequestMessageSlice";
 
 const useFetch = (url: string) => {
 
@@ -8,24 +9,40 @@ const useFetch = (url: string) => {
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
 
         async function fetchData() {
 
             await AxiosConfig.get(url)
             .then(response => {
+                console.log("useFetch - 1")
+                dispatch(setRequestMessage(response.status))
                 if (response.status !== 200) {
                     throw Error("the data couldn't be fetched")
+                } else {
+                    console.log(response)
                 }
-                console.log(response)
                 return response;
             })
             .then((response) => {
+                console.log("useFetch - 2")
                 setData(response.data);
                 setIsPending(false);
                 setError(null);
+                // if (url === '/') dispatch(updateCoupons({
+                //     couponStorageValue: response.data
+                // }))
+                // else if (url === '/companies') dispatch(updateCompanies({
+                //     companiesStorageValue: response.data
+                // }))
+                // else if (url === '/customers') dispatch(updateCustomers({
+                //     customersStorageValue: response.data
+                // }))
             })
             .catch((err) => {
+                console.log("useFetch - 3")
                 if (err.name === 'AbortError') {
                     console.log('fetch aborted');
                 } else {

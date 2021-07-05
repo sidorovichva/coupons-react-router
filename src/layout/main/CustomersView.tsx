@@ -6,18 +6,16 @@ import useFetch from "../../hooks/useFetch";
 
 const CustomersView = (): JSX.Element => {
 
-    const { data: customers, error } = useFetch('/customers');
+    const { data: customers } = useFetch('/customers');
 
     return (
         <div className="CustomersView">
-            <h1 className="title">All Coupons</h1>
             {customers.map((customer: CustomerInt) => (
                     <div key={ customer.id }>
                         <CustomerRep {...customer}/>
                     </div>
                 )
             )}
-            <div className="message">{ error }</div>
         </div>
     );
 }

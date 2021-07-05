@@ -21,19 +21,14 @@ const Header = (): JSX.Element => {
 
     return (
         <div className="Header" style={{backgroundColor: currentTheme.bg, color: currentTheme.syntax}}>
-            {/*<div className="left">*/}
-                <Logo />
-            {/*</div>*/}
-            {/*<div className="right">*/}
-                <Companies />
-                {role === 'ADMINISTRATOR' && <Customers />}
-                <Coupons />
-                <DropDownMenu />
-                {/*<Language />*/}
-                <ThemeSwitch />
-                {email !== '' && <User />}
-                {email === '' && <Login />}
-            {/*</div>*/}
+            <Logo />
+            <Companies />
+            {role === 'ADMINISTRATOR' && <Customers />}
+            <Coupons />
+            <DropDownMenu />
+            <ThemeSwitch />
+            {email !== '' && <User />}
+            {email === '' && <Login />}
         </div>
     );
 }

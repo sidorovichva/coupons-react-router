@@ -10,13 +10,13 @@ function App() {
 
     return (
         <div className="App">
-            <Router>
-                <ThemeContextProvider>
+            <ThemeContextProvider>
+                <Router>
                     <Header />
                     <Main />
                     <Footer />
-                </ThemeContextProvider>
-            </Router>
+                </Router>
+            </ThemeContextProvider>
         </div>
     );
 }

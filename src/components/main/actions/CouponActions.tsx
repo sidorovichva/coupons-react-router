@@ -5,7 +5,7 @@ import ConfigureStore from "../../../redux/StoreConfig";
 import {CouponInt} from "../../../interfaces/CouponInt";
 import {sendRequest} from "../../../redux/AxiosSlicer";
 import {openWindow} from "../../../redux/PopUpWindowsSlicer";
-import UpdateCoupon from "../../UpdateCoupon";
+import UpdateCoupon from "../../../layout/main/UpdateCoupon";
 
 const ActionBar = (coupon: CouponInt): JSX.Element => {
 
@@ -45,7 +45,7 @@ const ActionBar = (coupon: CouponInt): JSX.Element => {
             {role === 'CUSTOMER' && !bought && <div className="buy" onClick={handleBuy}>Buy</div>}
             {role === 'COMPANY' && <div className="update" onClick={handleUpdate}>Update</div>}
             {role === 'COMPANY' && !deleted && <div className="delete" onClick={handleDelete}>Delete</div>}
-            {updateCoupon && <UpdateCoupon coupon={ coupon } />}
+            {/*{updateCoupon && <UpdateCoupon coupon={ coupon } />}*/}
         </div>
     );
 }
