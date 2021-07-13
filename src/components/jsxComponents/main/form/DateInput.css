@@ -1,0 +1,24 @@
+.DateInput {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    appearance: none;
+}
+
+.DateInput > input {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+
+}
+
+.DateInput > input:hover {
+    border: 3px solid green;
+}
+
+.DateInput > input:focus {
+    border: 3px solid green;
+}

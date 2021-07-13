@@ -1,0 +1,35 @@
+.TextInput {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    appearance: none;
+    position: relative;
+}
+
+.TextInput > input {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+}
+
+textarea, input {
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.TextInput > input:hover {
+    border: 3px solid green;
+}
+
+.TextInput > input:focus {
+    border: 3px solid green;
+}
+
+.check {
+    height: 80%;
+    position: absolute;
+    right: -2rem;
+}

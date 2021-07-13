@@ -1,26 +1,21 @@
 import './Logo.css';
 import React from "react";
-import {useDispatch} from "react-redux";
-import {about} from "../../redux/MainScreenSlicer";
-import { Link } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
+import {ClientURL} from "../../enums/ClientURL";
 
 function Logo():JSX.Element {
 
-    const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleHome = () => {
-    }
-
-    const handleAbout = () => {
-        dispatch(about());
+        history.push(ClientURL.home)
     }
 
     return (
         <div className="Logo">
-            <div className="Home" onClick={ handleHome }>CMS</div>
+            <h1 className="Home" onClick={ handleHome }>CMS</h1>
             <ul className="dropdown">
-                {/*<li onClick={handleAbout}>About</li>*/}
-                <Link className="Link" to="/about" onClick={handleAbout}>About</Link>
+                <Link className="Link" to={ ClientURL.about } >About</Link>
             </ul>
         </div>
     );

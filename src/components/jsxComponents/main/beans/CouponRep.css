@@ -1,0 +1,101 @@
+.CouponRep {
+    height: 30px;
+    display: flex;
+    flex-direction:row; 
+    align-items: center;
+    background-color: darkgrey;
+    padding: 5px;
+    margin: 1vh;
+}
+
+.CouponRep:hover {
+    box-shadow: 2px 2px 2px green;
+}
+
+.CouponRep > div{
+    border-bottom: none;
+    display: flex;
+}
+
+.CouponRep > .title{
+    width: 20%;
+}
+
+.CouponRep > .description{
+    width: 35%;
+}
+
+.CouponRep > .endDate{
+    width: 15%;
+}
+
+.CouponRep > .price{
+    width: 15%;
+}
+
+.CouponRep > .actions {
+    width: 15%;
+    height: 100%;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+}
+
+.actions > .buy{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions > .update{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+.actions > .Link{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.actions > .delete{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions > div:hover{
+    background-color: green;
+    color: white;
+}
+
+@media screen and (min-width: 760px) {
+    .CouponRep {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 759px) {
+    .CouponRep {
+        display: none;
+    }
+}

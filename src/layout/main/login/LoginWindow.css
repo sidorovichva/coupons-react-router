@@ -1,0 +1,21 @@
+.LoginWindow {
+    width: 20rem;
+}
+
+.LoginWindow > div {
+    height: 30px;
+    display: flex;
+    /*flex-direction:row;*/
+    justify-content: center;
+
+    align-items: center;
+    padding: 5px;
+    margin: 1vh;
+}
+
+.LoginWindow > .submit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}

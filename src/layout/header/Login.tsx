@@ -1,22 +1,28 @@
 import React from 'react';
 import './Login.css';
-import {useDispatch, useSelector} from "react-redux";
-import ConfigureStore from "../../redux/StoreConfig";
-import AddCustomer from "../main/AddCustomer";
 import {Link} from "react-router-dom";
+import {ClientURL} from "../../enums/ClientURL";
+import {useDispatch} from "react-redux";
+import {setHistoryPushLink} from "../../redux/HistoryPushSlice";
 
 const Login = (): JSX.Element => {
 
-    const { registerWindow } = useSelector((state) => ConfigureStore.getState().PopUpWindowsSlicer);
     const dispatch = useDispatch();
+
+    const handleRegister = () => {
+        console.log("^^^")
+        dispatch(setHistoryPushLink({
+            historyPushSuccessValue: ClientURL.login,
+            historyPushFailValue: ClientURL.addCustomer
+        }))
+    }
 
     return (
         <div className="Login">
-            <Link className="loginButton" to="/login">Login</Link>
+            <Link className="loginButton" to={ ClientURL.login }>Login</Link>
             <ul className="dropdown">
-                <Link className="Link" to="/add_customer">Register</Link>
+                <Link className="Link" to={ ClientURL.addCustomer } onClick={handleRegister}>Register</Link>
             </ul>
-            {registerWindow && <AddCustomer />}
         </div>
     );
 }

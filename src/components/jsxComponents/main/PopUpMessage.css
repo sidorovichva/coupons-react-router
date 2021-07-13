@@ -1,0 +1,10 @@
+.PopUpMessage {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    font-size: 0.8rem;
+}

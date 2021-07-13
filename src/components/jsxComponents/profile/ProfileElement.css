@@ -1,0 +1,16 @@
+.ProfileElement {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+.ProfileElement > div {
+    float: left;
+}
+
+.dataField {
+    /*display: flex;*/
+    /*align-items: center;*/
+    width: 10rem;
+}

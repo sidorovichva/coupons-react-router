@@ -2,24 +2,25 @@ import React, {useContext} from 'react';
 import {ThemeContext} from "../contexts/ThemeContext";
 import './Footer.css'
 import FooterCell from "./footer/FooterCell";
+import DefineNumber from "../components/logicComponents/DefineNumber";
 
-interface Props {
+const Footer = ():JSX.Element => {
 
-}
-
-const Footer: React.FC<Props> = () => {
+    const { userNumber } = DefineNumber();
 
     const { isLightTheme, light, dark } = useContext(ThemeContext);
     const currentTheme = isLightTheme ? light : dark;
 
     return (
         <div className="Footer" style={{backgroundColor: currentTheme.bg, color: currentTheme.syntax}}>
-            <FooterCell className="largeScreen" title="ADMINISTRATOR" email="admin" pass="a"/>
+            <FooterCell className="largeScreen" num={0}/>
             <div className="separator"> | </div>
-            <FooterCell className="largeScreen" title="COMPANY" email="company" pass="com"/>
+            <FooterCell className="largeScreen" num={1}/>
             <div className="separator"> | </div>
-            <FooterCell className="largeScreen" title="CUSTOMER" email="customer" pass="cus"/>
-            <FooterCell className="smallScreen" title="CUSTOMER" email="customer" pass="cus"/>
+            <FooterCell className="largeScreen" num={2}/>
+            <div className="smallScreen">
+                <FooterCell className="smallScreen" num={ userNumber }/>
+            </div>
         </div>
     );
 }

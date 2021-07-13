@@ -1,0 +1,46 @@
+.AddCoupon {
+    width: 20rem;
+}
+
+.AddCoupon > div {
+    height: 1.75rem;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    padding: 0.5rem;
+}
+
+/*.categories {*/
+/*    width: 100%;*/
+/*    height: 20px;*/
+/*    margin: 5px;*/
+/*}*/
+
+/*.AddCoupon {*/
+/*    width: 20rem;*/
+/*}*/
+
+/*.AddCoupon > div {*/
+/*    height: 30px;*/
+/*    display: flex;*/
+/*    !*flex-direction:row;*!*/
+/*    justify-content: center;*/
+
+/*    align-items: center;*/
+/*    padding: 5px;*/
+/*    margin: 1vh;*/
+/*}*/
+
+/*.AddCoupon > .submit {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    align-items: center;*/
+/*    justify-content: space-evenly;*/
+/*}*/
+
+/*.categories {*/
+/*    width: 100%;*/
+/*    height: 20px;*/
+/*    margin: 5px;*/
+/*}*/

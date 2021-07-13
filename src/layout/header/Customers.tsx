@@ -3,6 +3,8 @@ import './Customers.css';
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 import ConfigureStore from "../../redux/StoreConfig";
+import {ClientURL} from "../../enums/ClientURL";
+import {Role} from "../../enums/Role";
 
 const Customers = (): JSX.Element => {
 
@@ -12,8 +14,8 @@ const Customers = (): JSX.Element => {
         <div className="Customers">
             Customers
             <ul className="dropdown">
-                {role === 'ADMINISTRATOR' && <Link className="Link" to="/add_customer">Add customer</Link>}
-                <Link className="Link" to="/customers">All customers</Link>
+                {role === Role.ADMINISTRATOR && <Link className="Link" to={ ClientURL.addCustomer }>Add customer</Link>}
+                <Link className="Link" to={ ClientURL.allCustomers }>All customers</Link>
             </ul>
         </div>
     );

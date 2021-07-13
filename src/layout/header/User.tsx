@@ -1,32 +1,21 @@
 import React from 'react';
 import './User.css';
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import ConfigureStore from "../../redux/StoreConfig";
-import {unAuthorize} from "../../redux/LoginSlice";
-import {useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
+import {ClientURL} from "../../enums/ClientURL";
+import {Role} from "../../enums/Role";
+import LogOut from "../../components/logicComponents/LogOut";
 
 const User = (): JSX.Element => {
 
     const { email } = useSelector((state) => ConfigureStore.getState().LoginSlice);
-    const dispatch = useDispatch();
+    const { role } = useSelector((state) => ConfigureStore.getState().LoginSlice);
 
-    const history = useHistory();
-
-    const handleProfile = () => {
-
-    }
-
-    const handleLogout = () => {
-        dispatch(unAuthorize());
-        localStorage.setItem("Username", '');
-        localStorage.setItem("Role", '');
-        localStorage.setItem("Authorization", '');
-        history.push('/');
-    }
+    const { handleLogout } = LogOut();
 
     return (
         <div className="User">
-
             <svg viewBox="0 0 24 24">
                 <path fill="currentColor" d="M21.1,12.5L22.5,13.91L15.97,20.5L12.5,17L13.9,15.59L15.97,17.67L21.1,12.5M11,
                 4A4,4 0 0,1 15,8A4,4 0 0,1 11,12A4,4 0 0,1 7,8A4,4 0 0,1 11,4M11,6A2,2 0 0,0 9,8A2,2 0 0,0 11,10A2,2 0 0,
@@ -37,7 +26,7 @@ const User = (): JSX.Element => {
                 &nbsp; { email }
             </div>
             <ul className="dropdown">
-                <li onClick={ handleProfile }>My profile</li>
+                <Link className="Link" to={ role === Role.CUSTOMER ? ClientURL.profileCustomer : ClientURL.profileCompany}>My Profile</Link>
                 <li onClick={ handleLogout }>Logout</li>
             </ul>
         </div>

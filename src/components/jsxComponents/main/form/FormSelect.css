@@ -1,0 +1,26 @@
+.FormSelect {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    appearance: none;
+}
+
+input {
+    width: 100%;
+}
+
+select {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    width: 100%;
+    border: none;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+select:hover {
+    border: 3px solid green;
+}

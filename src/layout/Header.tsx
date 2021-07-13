@@ -22,11 +22,11 @@ const Header = (): JSX.Element => {
     return (
         <div className="Header" style={{backgroundColor: currentTheme.bg, color: currentTheme.syntax}}>
             <Logo />
+            <ThemeSwitch />
             <Companies />
             {role === 'ADMINISTRATOR' && <Customers />}
             <Coupons />
             <DropDownMenu />
-            <ThemeSwitch />
             {email !== '' && <User />}
             {email === '' && <Login />}
         </div>
