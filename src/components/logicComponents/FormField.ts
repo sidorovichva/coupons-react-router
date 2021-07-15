@@ -4,45 +4,51 @@ import {useEffect, useState} from "react";
 
 const FormField = (fieldName: string) => {
 
-    const { numericInput, value, field } = useSelector((state) => ConfigureStore.getState().InputSlice);
+    const { numericInput, textInput, field, matches } = useSelector((state) => ConfigureStore.getState().InputSlice);
 
     const [textValue, setFieldValue] = useState<string>('');
     const [numValue, setNumValue] = useState<number>(0);
+    const [isMatches, setIsMatches] = useState<boolean>(false);
 
     useEffect(() => {
-
-        if (field === fieldName) setFieldValue(value);
-    }, [value])
+        if (field === fieldName) {
+            setFieldValue(textInput);
+            setIsMatches(matches);
+        }
+    }, [textInput])
 
     useEffect(() => {
-        console.log(field + " - " + numericInput)
-        if (field === fieldName) setNumValue(numericInput);
+        if (field === fieldName) {
+            setNumValue(numericInput);
+            setIsMatches(matches);
+        }
     }, [numericInput])
 
-    return { textValue, numValue };
+    return { textValue, numValue, isMatches };
 }
 
 export default FormField;
 
 // import {useSelector} from "react-redux";
-// import ConfigureStore from "../redux/StoreConfig";
+// import ConfigureStore from "../../redux/StoreConfig";
 // import {useEffect, useState} from "react";
 //
 // const FormField = (fieldName: string) => {
 //
-//     const { numericInput, value, field } = useSelector((state) => ConfigureStore.getState().InputSlice);
+//     const { numericInput, textInput, field } = useSelector((state) => ConfigureStore.getState().InputSlice);
 //
-//     const [fieldValue, setFieldValue] = useState<string | number>('');
-//
-//     useEffect(() => {
-//         if (field === fieldName) setFieldValue(value);
-//     }, [value])
+//     const [textValue, setFieldValue] = useState<string>('');
+//     const [numValue, setNumValue] = useState<number>(0);
 //
 //     useEffect(() => {
-//         if (field === fieldName) setFieldValue(numericInput);
+//         if (field === fieldName) setFieldValue(textInput);
+//     }, [textInput])
+//
+//     useEffect(() => {
+//         if (field === fieldName) setNumValue(numericInput);
 //     }, [numericInput])
 //
-//     return { fieldValue };
+//     return { textValue, numValue };
 // }
 //
 // export default FormField;

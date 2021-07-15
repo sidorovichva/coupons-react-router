@@ -9,6 +9,8 @@ import {ServerURL} from "../../../../enums/ServerURL";
 import TextInput from "../../../../components/jsxComponents/main/form/TextInput";
 import FormField from "../../../../components/logicComponents/FormField";
 import BodyConstructor from "../../../../components/logicComponents/BodyConstructor";
+import PasswordInput from "../../../../components/jsxComponents/main/form/PasswordInput";
+import {RegexPattern} from "../../../../enums/RegexPattern";
 
 const UpdateCompany = (): JSX.Element => {
 
@@ -22,9 +24,9 @@ const UpdateCompany = (): JSX.Element => {
     const field2 = 'email';
     const field3 = 'password';
 
-    const { textValue: value1 } = FormField(field1);
-    const { textValue: value2 } = FormField(field2);
-    const { textValue: value3 } = FormField(field3);
+    const { textValue: value1, isMatches: matches1 } = FormField(field1);
+    const { textValue: value2, isMatches: matches2 } = FormField(field2);
+    const { textValue: value3, isMatches: matches3 } = FormField(field3);
 
     const { handleSubmit, body, isSubmitted } = BodyConstructor(
         ["id", field1, field2, field3],
@@ -32,7 +34,7 @@ const UpdateCompany = (): JSX.Element => {
             companyBean.id,
             value1 === '' ? companyBean.name : value1,
             value2 === '' ? companyBean.email : value2,
-            value3 === '' ? companyBean.password : value3
+            value3
         ],
         historyPushIfSuccess,
         historyPushIfFail
@@ -41,16 +43,34 @@ const UpdateCompany = (): JSX.Element => {
     return (
         <form className="UpdateCompany" onSubmit={ handleSubmit }>
             <div>
-                <TextInput className={field1} placeholder="company title"/>
+                <TextInput
+                    className={field1}
+                    placeholder="company title"
+                    regex={RegExp(RegexPattern.title)}
+                />
             </div>
             <div>
-                <TextInput className={field2} placeholder="email"/>
+                <TextInput
+                    className={field2}
+                    placeholder="email"
+                    regex={RegExp(RegexPattern.email)}
+                />
             </div>
             <div>
-                <TextInput className={field3} placeholder="password"/>
+                <PasswordInput
+                    className={field3}
+                    placeholder="password"
+                    regex={RegExp(RegexPattern.password)}
+                />
             </div>
             <div>
-                <FormSubmit />
+                <FormSubmit
+                    checksArray={[
+                        value1 === '' ? true : matches1,
+                        value2 === '' ? true : matches2,
+                        value3 === '' ? true : matches3
+                    ]}
+                />
             </div>
             {isSubmitted && <ServerRequest method={axiosMethod} link={link} body={body} />}
         </form>

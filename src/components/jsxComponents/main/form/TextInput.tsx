@@ -1,21 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import './TextInput.css';
 import {useDispatch} from "react-redux";
-import {use} from "../../../../redux/InputSlice";
+import {setTextValue} from "../../../../redux/InputSlice";
 
 interface Props {
     className: string
+    isCorrect?: boolean,
     placeholder?: string
     required?: boolean
     regex?: RegExp
 }
 
 const TextInput: React.FC<Props> = ({
-                                        className,
-                                        placeholder,
-                                        required,
-                                        regex
-                                    }): JSX.Element => {
+    className,
+    isCorrect,
+    placeholder,
+    required,
+    regex
+}): JSX.Element => {
 
     const dispatch = useDispatch();
 
@@ -23,15 +25,14 @@ const TextInput: React.FC<Props> = ({
     const [matches, setMatches] = useState(false);
 
     useEffect(() => {
-        console.log(returnValue)
-        if (regex !== undefined && returnValue.toLowerCase().match(regex)) setMatches(true)
-        else setMatches(false)
-
-        dispatch(use({
-            valueValue: returnValue,
-            fieldValue: className
+        const innerBoolean = regex === undefined ? true : !!returnValue.toLowerCase().match(regex)
+        setMatches(innerBoolean)
+        dispatch(setTextValue({
+            textInputValue: returnValue,
+            fieldValue: className,
+            matchesValue: innerBoolean
         }));
-    }, [returnValue])
+    }, [returnValue] )
 
     if (required !== true) {
         return(
@@ -43,7 +44,7 @@ const TextInput: React.FC<Props> = ({
                     value={ returnValue }
                     onChange={(e) => setReturnValue(e.target.value)}
                 />
-                {matches && <svg className="check" viewBox="0 0 24 24">
+                {matches && (isCorrect || isCorrect === undefined) && <svg className="check" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" />
                 </svg>}
             </div>
@@ -59,7 +60,7 @@ const TextInput: React.FC<Props> = ({
                     onChange={(e) => setReturnValue(e.target.value)}
                     required
                 />
-                {matches && <svg className="check" viewBox="0 0 24 24">
+                {matches && (isCorrect || isCorrect === undefined) && <svg className="check" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" />
                 </svg>}
             </div>

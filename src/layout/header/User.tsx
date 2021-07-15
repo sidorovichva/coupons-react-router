@@ -23,10 +23,10 @@ const User = (): JSX.Element => {
                 17V18.1H11.1L13,20H3V17C3,14.34 8.33,13 11,13Z" />
             </svg>
             <div className="userEmail">
-                &nbsp; { email }
+                &nbsp; { email !== null ? email.split('@')[0] : email}
             </div>
             <ul className="dropdown">
-                <Link className="Link" to={ role === Role.CUSTOMER ? ClientURL.profileCustomer : ClientURL.profileCompany}>My Profile</Link>
+                {role !== 'ADMINISTRATOR' && <Link className="Link" to={ role === Role.CUSTOMER ? ClientURL.profileCustomer : ClientURL.profileCompany}>My Profile</Link>}
                 <li onClick={ handleLogout }>Logout</li>
             </ul>
         </div>

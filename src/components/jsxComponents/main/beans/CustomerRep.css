@@ -1,5 +1,5 @@
 .CustomerRep {
-    height: 30px;
+    height: 1.5rem;
     display: flex;
     flex-direction:row;
     align-items: center;
@@ -76,4 +76,88 @@
 .actions > .Link:hover {
     background-color: green;
     color: white;
+}
+
+@media screen and (max-width: 759px) {
+    .CustomerRep {
+        height: 10rem;
+        justify-content: space-between;
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        background-color: darkgrey;
+        padding: 5px;
+        margin: 1vh;
+    }
+
+    .CustomerRep:hover {
+        box-shadow: 2px 2px 2px green;
+    }
+
+    .CustomerRep > div{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .CustomerRep > .firstName{
+        width: 100%;
+    }
+
+    .CustomerRep > .lastName{
+        width: 100%;
+    }
+
+    .CustomerRep > .email{
+        width: 100%;
+    }
+
+    .CustomerRep > .actions {
+        font-size: 1rem;
+        font-weight: bold;
+        width: 100%;
+        background-color: inherit;
+        display: flex;
+        flex-direction:row;
+        justify-content: space-evenly;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction:row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .actions > .Link{
+        width: 33%;
+        height: 100%;
+        display: flex;
+        border: none;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .actions > .delete{
+        width: 33%;
+        height: 100%;
+        display: flex;
+        border: none;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .actions > div:hover {
+        background-color: green;
+        color: white;
+    }
+
+    .actions > .Link:hover {
+        background-color: green;
+        color: white;
+    }
 }

@@ -1,17 +1,22 @@
 import { useEffect} from 'react';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {authorize} from "../../redux/LoginSlice";
-import {useHistory} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 import AxiosConfig from "../../axios/AxiosConfig";
 import {ServerURL} from "../../enums/ServerURL";
 import {setResponseStatus} from "../../redux/ResponseStatusSlice";
+import ConfigureStore from "../../redux/StoreConfig";
 
 const useLogin = (body: string) => {
+
+    const { historyPushSuccess, historyPushFail } = useSelector((state) =>
+        ConfigureStore.getState().HistoryPushSlice);
 
     const index = ServerURL.login;
 
     const history = useHistory();
     const dispatch = useDispatch();
+    //const currentURL = useLocation().pathname;
 
     useEffect(() => {
 
@@ -20,10 +25,6 @@ const useLogin = (body: string) => {
             body,
         )
             .then(response => {
-
-                console.log("1")
-                console.log(response.status)
-                console.log(response.data)
 
                 if (response.data.Authorization !== null && response.data.Authorization.startsWith("Bearer ")) {
 
@@ -40,18 +41,20 @@ const useLogin = (body: string) => {
                         emailValue: localStorage.getItem("Username"),
                         roleValue: localStorage.getItem("Role")
                     }))
-                    history.push(ServerURL.allCoupons);
+
+                    history.push(historyPushSuccess);
                     history.go(0);
+
                 }
             })
             .catch((err) => {
-
-                console.log("3")
 
                 dispatch(setResponseStatus({
                     responseStatusValue: err.response.status,
                     responseMessageValue: "Login Failed",
                 }));
+
+                history.push(historyPushFail);
 
             })
 

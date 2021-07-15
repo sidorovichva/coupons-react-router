@@ -17,8 +17,8 @@ const FooterCell: React.FC<Props> = ({
     return (
         <div className={className}>
             <div>{user.title}</div>
-            <div>e-mail:"{user.email}"</div>
-            <div>password:"{user.pass}"</div>
+            <div>user:"{user.email}"</div>
+            <div>pass:"{user.pass}"</div>
         </div>
     );
 };

@@ -8,7 +8,7 @@ const PopUpMessage = (): JSX.Element => {
         ConfigureStore.getState().ResponseStatusSlice);
 
     return (
-        <div className="PopUpMessage" style={{backgroundColor: responseStatus === 200 ? "green" : "red"}}>
+        <div className="PopUpMessage" style={{borderColor: responseStatus === 200 ? "green" : "red"}}>
             {responseMessage}
         </div>
     );

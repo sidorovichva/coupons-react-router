@@ -1,36 +1,27 @@
 import './CustomerRep.css';
 import {CustomerInt} from "../../../../interfaces/CustomerInt";
-import React, {useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import ConfigureStore from "../../../../redux/StoreConfig";
-import {Link, useHistory} from "react-router-dom";
-import {setCustomerBean} from "../../../../redux/UpdateBeanSlice";
+import {Link} from "react-router-dom";
 import ServerRequest from "../../../logicComponents/ServerRequest";
 import {ServerURL} from "../../../../enums/ServerURL";
 import {ClientURL} from "../../../../enums/ClientURL";
+import DeleteBean from "../../../logicComponents/DeleteBean";
+import UpdateBean from "../../../logicComponents/UpdateBean";
 
 const CustomerRep = (customer: CustomerInt) => {
 
-    const {role} = useSelector((state) => ConfigureStore.getState().LoginSlice);
-    const dispatch = useDispatch();
+    const { handleUpdate } = UpdateBean(customer);
 
-    const handleUpdate = () => {
-        dispatch(setCustomerBean({
-            customerBeanValue: customer
-        }))
-    }
-
-    const [isToDelete, setIsToDelete] = useState<boolean>(false);
-    const [linkToDelete] = useState(ServerURL.deleteCustomer);
-    const [deleteLink, setDeleteLink] = useState<string>('');
-
-    const history = useHistory();
-
-    const handleDelete = () => {
-        setDeleteLink(linkToDelete + '/' + customer.id);
-        setIsToDelete(true);
-        history.go(0);
-    }
+    const {
+        handleDelete,
+        isToDelete,
+        deleteLink,
+        axiosDelete
+    } = DeleteBean(
+        customer.id,
+        ServerURL.deleteCustomer,
+        ClientURL.allCustomers,
+        ClientURL.allCustomers
+    )
 
     return (
         <div className="CustomerRep">
@@ -38,11 +29,11 @@ const CustomerRep = (customer: CustomerInt) => {
             <div className="lastName">{customer.lastName}</div>
             <div className="email">{customer.email}</div>
             <div className="actions">
-                {role === 'ADMINISTRATOR' && <Link className="Link" to={ClientURL.updateCustomer} onClick={handleUpdate}>Update</Link>}
-                {role === 'ADMINISTRATOR' && <div className="delete" onClick={ handleDelete }>Delete</div>}
+                <Link className="Link" to={ClientURL.updateCustomer} onClick={handleUpdate}>Update</Link>
+                <div className="delete" onClick={ handleDelete }>Delete</div>
             </div>
             {/*{isToDelete && <Delete link={deleteLink} />}*/}
-            {isToDelete && <ServerRequest method={"DELETE"} link={deleteLink} />}
+            {isToDelete && <ServerRequest method={axiosDelete} link={deleteLink} />}
         </div>
     );
 }

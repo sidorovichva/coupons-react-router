@@ -3,10 +3,11 @@
     align-items: center;
     width: 80%;
     appearance: none;
+    position: relative;
 }
 
 .NumberInput > input {
-    font-size: 0.75rem;
+    font-size: 1rem;
     padding: 0.5rem;
     width: 100%;
     text-transform: uppercase;
@@ -20,4 +21,17 @@
 
 .NumberInput > input:focus {
     border: 3px solid green;
+}
+
+.NumberInput > input::placeholder {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    color: black;
+}
+
+.check {
+    height: 80%;
+    position: absolute;
+    right: -2rem;
 }

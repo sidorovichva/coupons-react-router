@@ -8,7 +8,7 @@ import {ServerURL} from "../../enums/ServerURL";
 import {CustomerInt} from "../../interfaces/CustomerInt";
 import {CompanyInt} from "../../interfaces/CompanyInt";
 
-const useAxios = (link: string) => {
+const useGet = (link: string) => {
 
     const [data, setData] = useState<[]>([]);
     const [customerObject, setCustomerObject] = useState<CustomerInt>();
@@ -51,10 +51,11 @@ const useAxios = (link: string) => {
 
                     dispatch(setResponseStatus({
                         responseStatusValue: err.response.status,
-                        responseMessageValue: JSON.stringify(err.response.data),
+                        //responseMessageValue: JSON.stringify(err.response.data),
+                        responseMessageValue: "cvbcv"
                     }));
                 }
-                history.push(ClientURL.home)
+                history.push(ClientURL.allCoupons)
             })
 
     }, [link]);
@@ -62,4 +63,4 @@ const useAxios = (link: string) => {
     return { data, customerObject, companyObject }
 }
 
-export default useAxios;
+export default useGet;

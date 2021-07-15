@@ -15,13 +15,13 @@ export const ResponseStatusSlice = createSlice({
         resetResponseStatus: (state) => {
             state.responseStatus = null;
             state.responseMessage = '';
-        },
+        }
     }
 });
 
 export const {
     setResponseStatus,
-    resetResponseStatus
+    resetResponseStatus,
 } = ResponseStatusSlice.actions;
 
 export default ResponseStatusSlice.reducer;

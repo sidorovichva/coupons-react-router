@@ -1,50 +1,37 @@
-import React, {SyntheticEvent, useEffect} from 'react';
 import { useState } from 'react';
 import './LoginWindow.css';
-import {useDispatch, useSelector} from "react-redux";
 import FormSubmit from "../../../components/jsxComponents/main/form/FormSubmit";
-import ConfigureStore from "../../../redux/StoreConfig";
 import LoginPost from "../../../components/logicComponents/LoginPost";
-import {setHistoryPushLink} from "../../../redux/HistoryPushSlice";
 import {ClientURL} from "../../../enums/ClientURL";
 import TextInput from "../../../components/jsxComponents/main/form/TextInput";
 import {RegexPattern} from "../../../enums/RegexPattern";
 import PasswordInput from "../../../components/jsxComponents/main/form/PasswordInput";
+import BodyConstructor from "../../../components/logicComponents/BodyConstructor";
+import FormField from "../../../components/logicComponents/FormField";
 
 const LoginWindow = (): JSX.Element => {
 
-    const { value, field } = useSelector((state) => ConfigureStore.getState().InputSlice);
-    const dispatch = useDispatch();
+    const [historyPushIfSuccess] = useState(ClientURL.allCoupons);
+    const [historyPushIfFail] = useState(ClientURL.login);
 
-    const [loginUsername, setLoginUsername] = useState('');
-    const [loginPassword, setLoginPassword] = useState('');
+    const field1 = 'username';
+    const field2 = 'password';
 
-    useEffect(() => {
-        if (field === 'loginUsername') setLoginUsername(value);
-        else if (field === 'loginPassword') setLoginPassword(value);
-    }, [value, field])
+    const { textValue: value1, isMatches: matches1 } = FormField(field1);
+    const { textValue: value2, isMatches: matches2 } = FormField(field2);
 
-    const [isSubmitted, setIsSubmitted] = useState(false);
-    const [body, setBody] = useState('');
-
-    const handleSubmit = (args: SyntheticEvent) => {
-        args.preventDefault();
-        setBody(JSON.stringify({
-            "username": loginUsername,
-            "password": loginPassword,
-        }));
-        dispatch(setHistoryPushLink({
-            historyPushSuccessValue: ClientURL.allCoupons,
-            historyPushFailValue: ClientURL.login
-        }))
-        setIsSubmitted(true);
-    }
+    const { handleSubmit, body, isSubmitted } = BodyConstructor(
+        [field1, field2],
+        [value1, value2],
+        historyPushIfSuccess,
+        historyPushIfFail
+    );
 
     return (
         <form className="LoginWindow" onSubmit={ handleSubmit }>
             <div>
                 <TextInput
-                    className="loginUsername"
+                    className={field1}
                     placeholder="e-mail"
                     required={true}
                     regex={RegExp(RegexPattern.email)}
@@ -52,13 +39,18 @@ const LoginWindow = (): JSX.Element => {
             </div>
             <div>
                 <PasswordInput
-                    className="loginPassword"
+                    className={field2}
                     placeholder="password"
-                    regex={RegExp(RegexPattern.password)}
+                    regex={RegExp(RegexPattern.title)}
                 />
             </div>
             <div>
-                <FormSubmit />
+                <FormSubmit
+                    checksArray={[
+                        matches1,
+                        matches2
+                    ]}
+                />
             </div>
             {/*<div>*/}
             {/*    <FormRegister />*/}
@@ -69,3 +61,75 @@ const LoginWindow = (): JSX.Element => {
 }
 
 export default LoginWindow;
+
+// import React, {SyntheticEvent, useEffect} from 'react';
+// import { useState } from 'react';
+// import './LoginWindow.css';
+// import {useDispatch, useSelector} from "react-redux";
+// import FormSubmit from "../../../components/jsxComponents/main/form/FormSubmit";
+// import ConfigureStore from "../../../redux/StoreConfig";
+// import LoginPost from "../../../components/logicComponents/LoginPost";
+// import {setHistoryPushLink} from "../../../redux/HistoryPushSlice";
+// import {ClientURL} from "../../../enums/ClientURL";
+// import TextInput from "../../../components/jsxComponents/main/form/TextInput";
+// import {RegexPattern} from "../../../enums/RegexPattern";
+// import PasswordInput from "../../../components/jsxComponents/main/form/PasswordInput";
+//
+// const LoginWindow = (): JSX.Element => {
+//
+//     const { textInput, field } = useSelector((state) => ConfigureStore.getState().InputSlice);
+//     const dispatch = useDispatch();
+//
+//     const [loginUsername, setLoginUsername] = useState('');
+//     const [loginPassword, setLoginPassword] = useState('');
+//
+//     useEffect(() => {
+//         if (field === 'loginUsername') setLoginUsername(textInput);
+//         else if (field === 'loginPassword') setLoginPassword(textInput);
+//     }, [textInput, field])
+//
+//     const [isSubmitted, setIsSubmitted] = useState(false);
+//     const [body, setBody] = useState('');
+//
+//     const handleSubmit = (args: SyntheticEvent) => {
+//         args.preventDefault();
+//         setBody(JSON.stringify({
+//             "username": loginUsername,
+//             "password": loginPassword,
+//         }));
+//         dispatch(setHistoryPushLink({
+//             historyPushSuccessValue: ClientURL.allCoupons,
+//             historyPushFailValue: ClientURL.login
+//         }))
+//         setIsSubmitted(true);
+//     }
+//
+//     return (
+//         <form className="LoginWindow" onSubmit={ handleSubmit }>
+//             <div>
+//                 <TextInput
+//                     className="loginUsername"
+//                     placeholder="e-mail"
+//                     required={true}
+//                     regex={RegExp(RegexPattern.email)}
+//                 />
+//             </div>
+//             <div>
+//                 <PasswordInput
+//                     className="loginPassword"
+//                     placeholder="password"
+//                     regex={RegExp(RegexPattern.password)}
+//                 />
+//             </div>
+//             <div>
+//                 <FormSubmit />
+//             </div>
+//             {/*<div>*/}
+//             {/*    <FormRegister />*/}
+//             {/*</div>*/}
+//             {isSubmitted && <LoginPost body={body} />}
+//         </form>
+//     )
+// }
+//
+// export default LoginWindow;

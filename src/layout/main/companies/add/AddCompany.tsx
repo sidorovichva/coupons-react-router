@@ -7,6 +7,8 @@ import {useState} from "react";
 import {ClientURL} from "../../../../enums/ClientURL";
 import {ServerURL} from "../../../../enums/ServerURL";
 import BodyConstructor from "../../../../components/logicComponents/BodyConstructor";
+import {RegexPattern} from "../../../../enums/RegexPattern";
+import PasswordInput from "../../../../components/jsxComponents/main/form/PasswordInput";
 
 const AddCompany = (): JSX.Element => {
 
@@ -18,9 +20,9 @@ const AddCompany = (): JSX.Element => {
     const field2 = 'email';
     const field3 = 'password';
 
-    const { textValue: value1 } = FormField(field1);
-    const { textValue: value2 } = FormField(field2);
-    const { textValue: value3 } = FormField(field3);
+    const { textValue: value1, isMatches: matches1 } = FormField(field1);
+    const { textValue: value2, isMatches: matches2 } = FormField(field2);
+    const { textValue: value3, isMatches: matches3 } = FormField(field3);
 
     const { handleSubmit, body, isSubmitted } = BodyConstructor(
         [field1, field2, field3],
@@ -36,16 +38,37 @@ const AddCompany = (): JSX.Element => {
     return (
         <form className="AddCompany" onSubmit={ handleSubmit }>
             <div>
-                <TextInput {...props} className={field1} placeholder="company title" />
+                <TextInput
+                    {...props}
+                    className={field1}
+                    placeholder="company title"
+                    regex={RegExp(RegexPattern.title)}
+                />
             </div>
             <div>
-                <TextInput {...props} className={field2} placeholder="email" />
+                <TextInput
+                    {...props}
+                    className={field2}
+                    placeholder="email"
+                    regex={RegExp(RegexPattern.email)}
+                />
             </div>
             <div>
-                <TextInput {...props} className={field3} placeholder="password" />
+                <PasswordInput
+                    {...props}
+                    className={field3}
+                    placeholder="password"
+                    regex={RegExp(RegexPattern.password)}
+                />
             </div>
             <div>
-                <FormSubmit />
+                <FormSubmit
+                    checksArray={[
+                        matches1,
+                        matches2,
+                        matches3
+                    ]}
+                />
             </div>
             {isSubmitted && <ServerRequest link={link} method={axiosMethod} body={body} />}
         </form>

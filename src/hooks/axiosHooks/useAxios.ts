@@ -10,14 +10,12 @@ const useAxios = (link: string, method: Method, body?: string) => {
 
     const { historyPushSuccess, historyPushFail } = useSelector((state) => ConfigureStore.getState().HistoryPushSlice);
 
-    //const [data, setData] = useState<[]>([]);
-
     const history = useHistory();
     const currentURL = useLocation().pathname;
 
     const dispatch = useDispatch();
 
-    // console.log("++++++++++++++++++++++++++++++++++++++")
+    console.log("++++++++++++++++++++++++++++++++++++++")
     // console.log(link)
     // console.log(method)
     // console.log(body)
@@ -31,7 +29,7 @@ const useAxios = (link: string, method: Method, body?: string) => {
         })
             .then(response => {
 
-                // console.log("1")
+                console.log("1")
                 // console.log(response.status)
                 // console.log(response.data)
                 // console.log(link)
@@ -45,7 +43,8 @@ const useAxios = (link: string, method: Method, body?: string) => {
                 // console.log(historyPushFail)
                 // console.log(currentURL)
 
-                historyPushSuccess === currentURL ? history.go(0) : history.push(historyPushSuccess);
+                //historyPushSuccess === currentURL ? history.go(0) : history.push(historyPushSuccess);
+                history.push(historyPushSuccess);
 
                 //setData(response.data);
                 // return { data }
@@ -53,7 +52,7 @@ const useAxios = (link: string, method: Method, body?: string) => {
             })
             .catch((err) => {
 
-                //console.log("3")
+                console.log("3")
 
                 if (err.response.data) {
 

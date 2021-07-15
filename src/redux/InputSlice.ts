@@ -3,27 +3,30 @@ import { createSlice } from "@reduxjs/toolkit";
 export const InputSlice = createSlice({
     name: "InputSlice",
     initialState: {
+        textInput: '',
         numericInput: 0.00,
-        value: '',
-        field: ''
+        field: '',
+        matches: false
     },
     reducers: {
-        use: (state, action) => {
-            const { valueValue, fieldValue } = action.payload;
-            state.value = valueValue;
+        setTextValue: (state, action) => {
+            const { textInputValue, fieldValue, matchesValue } = action.payload;
+            state.textInput = textInputValue;
             state.field = fieldValue;
+            state.matches = matchesValue;
         },
         setNumericValue: (state, action) => {
-            const { numericInputValue, fieldValue } = action.payload;
+            const { numericInputValue, fieldValue, matchesValue } = action.payload;
             state.numericInput = numericInputValue;
             state.field = fieldValue;
+            state.matches = matchesValue;
         },
     }
 });
 
 export const {
-    use,
-    setNumericValue
+    setTextValue,
+    setNumericValue,
 } = InputSlice.actions;
 
 export default InputSlice.reducer;

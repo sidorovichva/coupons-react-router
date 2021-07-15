@@ -1,5 +1,5 @@
 .CouponRep {
-    height: 30px;
+    height: 1.5rem;
     display: flex;
     flex-direction:row; 
     align-items: center;
@@ -88,14 +88,110 @@
     color: white;
 }
 
-@media screen and (min-width: 760px) {
-    .CouponRep {
-        display: flex;
-    }
-}
-
 @media screen and (max-width: 759px) {
     .CouponRep {
-        display: none;
+        height: 8rem;
+        justify-content: space-between;
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        background-color: darkgrey;
+        padding: 5px;
+        margin: 1vh;
+    }
+
+    .CouponRep > div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .CouponRep > .title{
+        height: 20%;
+        width: 100%;
+    }
+
+    .CouponRep > .description{
+        height: 20%;
+        width: 100%;
+    }
+
+    .CouponRep > .endDate{
+        height: 20%;
+        width: 100%;
+    }
+
+    .CouponRep > .price{
+        height: 20%;
+        width: 100%;
+    }
+
+    .CouponRep:hover {
+        box-shadow: 2px 2px 2px green;
+    }
+
+    .CouponRep > .actions {
+        height: 20%;
+        font-size: 1rem;
+        font-weight: bold;
+        width: 100%;
+        background-color: inherit;
+        display: flex;
+        flex-direction:row;
+        justify-content: space-evenly;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction:row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .actions > .buy{
+        width: 33%;
+        height: 100%;
+        display: flex;
+        border: none;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .actions > .update{
+        width: 33%;
+        height: 100%;
+        display: flex;
+        border: none;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+    }
+    .actions > .Link{
+        width: 33%;
+        height: 100%;
+        display: flex;
+        border: none;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .actions > .delete{
+        width: 33%;
+        height: 100%;
+        display: flex;
+        border: none;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .actions > div:hover{
+        background-color: green;
+        color: white;
     }
 }
