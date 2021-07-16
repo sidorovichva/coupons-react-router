@@ -6,6 +6,7 @@ import DataStorageReducer from "./DataStorageSlice";
 import ResponseStatusReducer from "./ResponseStatusSlice"
 import HistoryPushReducer from "./HistoryPushSlice"
 import UpdateBeanReducer from "./UpdateBeanSlice";
+import UniqueIndexReducer from "./UniqueIndexSlice";
 
 export default configureStore({
     reducer: {
@@ -15,6 +16,7 @@ export default configureStore({
         DataStorageSlice: DataStorageReducer,
         ResponseStatusSlice: ResponseStatusReducer,
         HistoryPushSlice: HistoryPushReducer,
-        UpdateBeanSlice: UpdateBeanReducer
+        UpdateBeanSlice: UpdateBeanReducer,
+        UniqueIndexSlice: UniqueIndexReducer
     }
 });

@@ -10,6 +10,7 @@ export enum ClientURL {
     customerCoupons = '/coupons/customer',
     notCustomerCoupons = '/coupons/customer_not',
     companyCoupons = '/coupons/company',
+    buyCoupon = '/coupons/buy',
 
     allCompanies = '/companies',
     addCompany = '/companies/add',

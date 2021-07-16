@@ -44,7 +44,7 @@ const FormSelect: React.FC<Props> = ({
                 className={ className }
                 onChange={(e) => (setReturnValue(JSON.parse(e.target.value)))}
             >
-                <option selected hidden>{ label }</option>
+                <option defaultValue="Categories" hidden>{ label }</option>
                 {array.map((category: CategoryInt) => (
                     <option key={category.id} value={JSON.stringify(category)}>{category.name}</option>
                 ))};

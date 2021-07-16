@@ -1,32 +1,45 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {CouponInt} from "../interfaces/CouponInt";
 
 export const DataStorageSlice = createSlice({
     name: "DataStorageSlice",
     initialState: {
-        couponsStorage: [],
+        couponsStorage: [] as [],
         companiesStorage: [],
         customersStorage: [],
     },
     reducers: {
-        updateCoupons: (state, action) => {
+        storeCoupons: (state, action) => {
             const { couponStorageValue } = action.payload;
             state.couponsStorage = couponStorageValue;
         },
-        updateCompanies: (state, action) => {
+        storeCompanies: (state, action) => {
             const { companiesStorageValue } = action.payload;
             state.companiesStorage = companiesStorageValue;
         },
-        updateCustomers: (state, action) => {
+        storeCustomers: (state, action) => {
             const { customersStorageValue } = action.payload;
             state.customersStorage = customersStorageValue;
+        },
+        resetCoupons: (state) => {
+            state.couponsStorage = [];
+        },
+        resetCompanies: (state) => {
+            state.companiesStorage = [];
+        },
+        resetCustomers: (state) => {
+            state.customersStorage = [];
         },
     }
 });
 
 export const {
-    updateCoupons,
-    updateCompanies,
-    updateCustomers
+    storeCoupons,
+    storeCompanies,
+    storeCustomers,
+    resetCoupons,
+    resetCompanies,
+    resetCustomers
 } = DataStorageSlice.actions;
 
 export default DataStorageSlice.reducer;

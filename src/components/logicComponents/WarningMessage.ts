@@ -4,20 +4,30 @@ import ConfigureStore from "../../redux/StoreConfig";
 
 const WarningMessage = () => {
 
-    const { responseStatus, responseMessage } = useSelector((state) =>
+    const { isChanged, responseMessage } = useSelector((state) =>
         ConfigureStore.getState().ResponseStatusSlice);
 
     const [isWarningActive, setIsWarningActive] = useState(false);
-    const time = 5000;
+    const flashTime = 300;
+    const warningTime = 6000;
 
     const deactivateWarning = () => {
         setIsWarningActive(false);
     }
 
+    const activateWarning = () => {
+        setIsWarningActive(true);
+    }
+
     useEffect(() => {
-        if (responseStatus !== null || responseMessage !== '') setIsWarningActive(true)
-        setTimeout(deactivateWarning, time);
-    }, [responseStatus, responseMessage]);
+        if (responseMessage !== '') {
+            //setIsWarningActive(false);
+            deactivateWarning()
+            setTimeout(activateWarning, flashTime);
+            setTimeout(deactivateWarning, warningTime);
+        }
+        //setTimeout(deactivateWarning, warningTime);
+    }, [isChanged]);
 
     return { isWarningActive };
 }

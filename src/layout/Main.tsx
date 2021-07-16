@@ -21,6 +21,7 @@ import CouponsView from "./main/coupons/CouponsView";
 import ProfileCustomer from "./main/profile/customer/ProfileCustomer";
 import ProfileCompany from "./main/profile/company/ProfileCompany";
 import WarningMessage from "../components/logicComponents/WarningMessage";
+import BuyCoupon from "./main/coupons/buy/BuyCoupon";
 
 const Main = (): JSX.Element => {
 
@@ -88,6 +89,9 @@ const Main = (): JSX.Element => {
                     </Route>
                     <Route exact path={ClientURL.profileCompany}>
                         <ProfileCompany link={ServerURL.profileCompany}/>
+                    </Route>
+                    <Route exact path={ClientURL.buyCoupon + "/:id"}>
+                        <BuyCoupon link={ServerURL.buyCoupon} />
                     </Route>
                     <Route path='*'>
                         <Page404 />

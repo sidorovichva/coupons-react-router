@@ -9,6 +9,7 @@ import {ServerURL} from "../../../../enums/ServerURL";
 import {ClientURL} from "../../../../enums/ClientURL";
 import FormField from "../../../../components/logicComponents/FormField";
 import BodyConstructor from "../../../../components/logicComponents/BodyConstructor";
+import useAxios from "../../../../hooks/axiosHooks/useAxios";
 
 const AddCustomer = (): JSX.Element => {
 
@@ -16,6 +17,7 @@ const AddCustomer = (): JSX.Element => {
     const [historyPushIfSuccess] = useState(ClientURL.login);
     const [historyPushIfFail] = useState(ClientURL.allCoupons);
     const axiosMethod = 'POST'
+
     const field1 = 'firstName';
     const field2 = 'lastName';
     const field3 = 'email';

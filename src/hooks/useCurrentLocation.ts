@@ -3,7 +3,8 @@ import {ClientURL} from "../enums/ClientURL";
 
 const useCurrentLocation = () => {
 
-    const url = useLocation().pathname;
+    let url = useLocation().pathname;
+    url = url.replace(/\/[\d]+$/, '');
 
     switch (url) {
         case(ClientURL.home): {return 'All Coupons';}
@@ -23,6 +24,7 @@ const useCurrentLocation = () => {
         case(ClientURL.updateCustomer): {return 'Update customer';}
         case(ClientURL.profileCustomer): {return 'Profile';}
         case(ClientURL.profileCompany): {return 'Profile';}
+        case(ClientURL.buyCoupon): {return 'Buy coupon';}
         default: {return 'Page not found';}
     }
 }

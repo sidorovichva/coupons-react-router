@@ -3,6 +3,8 @@ import './CustomersView.css';
 import CustomerRep from "../../../components/jsxComponents/main/beans/CustomerRep";
 import {CustomerInt} from "../../../interfaces/CustomerInt";
 import useGet from "../../../hooks/axiosHooks/useGet";
+import {useSelector} from "react-redux";
+import ConfigureStore from "../../../redux/StoreConfig";
 
 interface Props {
     link: string
@@ -10,7 +12,9 @@ interface Props {
 
 const CustomersView: React.FC<Props> = ({link}): JSX.Element => {
 
-    const { data: customers } = useGet(link)
+    const { uniqueNumber } = useSelector((state) => ConfigureStore.getState().UniqueIndexSlice);
+
+    const { data: customers } = useGet(link, uniqueNumber)
 
     return (
         <div className="CustomersView">
@@ -25,26 +29,3 @@ const CustomersView: React.FC<Props> = ({link}): JSX.Element => {
 }
 
 export default CustomersView;
-
-// import './CustomersView.css';
-// import CustomerRep from "../../components/main/CustomerRep";
-// import {CustomerInt} from "../../interfaces/CustomerInt";
-// import useAxios from "../../hooks/axiosHooks/useAxios";
-//
-// const CustomersView = (): JSX.Element => {
-//
-//     const { data: customers } = useAxios('GET', '/customers')
-//
-//     return (
-//         <div className="CustomersView">
-//             {customers.map((customer: CustomerInt) => (
-//                     <div key={ customer.id }>
-//                         <CustomerRep {...customer}/>
-//                     </div>
-//                 )
-//             )}
-//         </div>
-//     );
-// }
-//
-// export default CustomersView;

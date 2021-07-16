@@ -12,11 +12,16 @@ export const HistoryPushSlice = createSlice({
             state.historyPushSuccess = historyPushSuccessValue;
             state.historyPushFail = historyPushFailValue;
         },
+        resetHistoryPush: (state) => {
+            state.historyPushSuccess = '';
+            state.historyPushFail = '';
+        },
     }
 });
 
 export const {
     setHistoryPushLink,
+    resetHistoryPush
 } = HistoryPushSlice.actions;
 
 export default HistoryPushSlice.reducer;

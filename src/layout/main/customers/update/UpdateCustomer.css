@@ -3,14 +3,11 @@
 }
 
 .UpdateCustomer > div {
-    height: 30px;
+    height: 2rem;
+    padding: 0.3rem;
     display: flex;
-    /*flex-direction:row;*/
     justify-content: center;
-
     align-items: center;
-    padding: 5px;
-    margin: 1vh;
 }
 
 .UpdateCustomer > .submit {

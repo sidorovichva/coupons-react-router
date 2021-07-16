@@ -1,35 +1,13 @@
-/*.UpdateCoupon {*/
-/*    width: 20rem;*/
-/*}*/
-
-/*.UpdateCoupon > div {*/
-/*    height: 1rem;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    margin-bottom: 1rem;*/
-/*}*/
-
-/*.UpdateCoupon > .submit {*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    align-items: center;*/
-/*    justify-content: space-evenly;*/
-/*}*/
-
 .UpdateCoupon {
     width: 20rem;
 }
 
 .UpdateCoupon > div {
-    height: 30px;
+    height: 2rem;
+    padding: 0.3rem;
     display: flex;
-    /*flex-direction:row;*/
     justify-content: center;
-
     align-items: center;
-    padding: 5px;
-    margin: 1vh;
 }
 
 .UpdateCoupon > .submit {

@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
 import AxiosConfig from "../../axios/AxiosConfig";
 import {useDispatch, useSelector} from "react-redux";
-import {setResponseStatus} from "../../redux/ResponseStatusSlice";
+import {resetResponseStatus, setResponseStatus} from "../../redux/ResponseStatusSlice";
 import ConfigureStore from "../../redux/StoreConfig";
 import {useHistory, useLocation} from "react-router-dom";
 import {Method} from "axios";
+import {resetHistoryPush} from "../../redux/HistoryPushSlice";
 
 const useAxios = (link: string, method: Method, body?: string) => {
+
+    console.log("---useAxios---")
 
     const { historyPushSuccess, historyPushFail } = useSelector((state) => ConfigureStore.getState().HistoryPushSlice);
 
@@ -15,12 +18,16 @@ const useAxios = (link: string, method: Method, body?: string) => {
 
     const dispatch = useDispatch();
 
-    console.log("++++++++++++++++++++++++++++++++++++++")
-    // console.log(link)
-    // console.log(method)
-    // console.log(body)
+    console.log("link: " + link)
+    console.log("method: " + method)
+    console.log("body: " + body)
+    console.log("historyPushSuccess: " + historyPushSuccess)
+    console.log("historyPushFail: " + historyPushFail)
+    console.log("currentURL: " + currentURL)
 
     useEffect(() => {
+
+        //if (body !== undefined && body !== '')
 
         AxiosConfig({
             method: method,
@@ -30,24 +37,16 @@ const useAxios = (link: string, method: Method, body?: string) => {
             .then(response => {
 
                 console.log("1")
-                // console.log(response.status)
-                // console.log(response.data)
-                // console.log(link)
+                console.log("response.status: " + response.status)
+                console.log("response.data: " + response.data)
 
                 dispatch(setResponseStatus({
                     responseStatusValue: response.status,
                     responseMessageValue: response.data
                 }));
-                // console.log("---------------------------")
-                // console.log(historyPushSuccess)
-                // console.log(historyPushFail)
-                // console.log(currentURL)
 
                 //historyPushSuccess === currentURL ? history.go(0) : history.push(historyPushSuccess);
                 history.push(historyPushSuccess);
-
-                //setData(response.data);
-                // return { data }
 
             })
             .catch((err) => {
@@ -56,8 +55,8 @@ const useAxios = (link: string, method: Method, body?: string) => {
 
                 if (err.response.data) {
 
-                        // console.log(err.response.status)
-                        // console.log(err.response.data)
+                        console.log("err.response.status: " + err.response.status)
+                        console.log("err.response.data: " + err.response.data)
 
                     dispatch(setResponseStatus({
                         responseStatusValue: err.response.status,
@@ -65,13 +64,18 @@ const useAxios = (link: string, method: Method, body?: string) => {
                     }));
                 }
 
-                if (historyPushFail !== currentURL) history.push(historyPushFail);
+                //if (historyPushFail !== currentURL) history.push(historyPushFail);
+                history.push(historyPushFail);
 
             })
 
-    }, [link]);
+        // console.log("useAxios - reset Response Status and History Push")
+        // dispatch(resetResponseStatus());
+        // dispatch(resetHistoryPush())
 
-    // return { data }
+    //}, [link]);
+    }, [link, method, body]);
+
 }
 
 export default useAxios;
