@@ -1,17 +1,28 @@
 import React from 'react';
 import useAxios from "../../hooks/axiosHooks/useAxios";
 import {Method} from "axios";
+import {useQuery, QueryClient} from "react-query";
+import PostData from "./PostData";
+import {ClientURL} from "../../enums/ClientURL";
+import useHistoryPush from "../../hooks/useHistoryPush";
 
 interface Props {
     method: Method,
     link: string
+    pushSuccess: ClientURL,
+    pushFail: ClientURL
     body?: string
 }
 
-const ServerRequest: React.FC<Props> = ({method, link, body}) => {
+const ServerRequest: React.FC<Props> = ({
+    method,
+    link,
+    pushSuccess,
+    pushFail,
+    body
+}) => {
 
-    console.log(body)
-    console.log(link)
+    useHistoryPush(pushSuccess, pushFail);
 
     useAxios(link, method, body);
 
@@ -23,3 +34,29 @@ const ServerRequest: React.FC<Props> = ({method, link, body}) => {
 };
 
 export default ServerRequest;
+
+// import React from 'react';
+// import useAxios from "../../hooks/axiosHooks/useAxios";
+// import {Method} from "axios";
+//
+// interface Props {
+//     method: Method,
+//     link: string
+//     body?: string
+// }
+//
+// const ServerRequest: React.FC<Props> = ({method, link, body}) => {
+//
+//     console.log(body)
+//     console.log(link)
+//
+//     useAxios(link, method, body);
+//
+//     return (
+//         <div className="ServerRequest">
+//
+//         </div>
+//     );
+// };
+//
+// export default ServerRequest;

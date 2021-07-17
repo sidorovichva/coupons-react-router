@@ -22,6 +22,9 @@ import ProfileCustomer from "./main/profile/customer/ProfileCustomer";
 import ProfileCompany from "./main/profile/company/ProfileCompany";
 import WarningMessage from "../components/logicComponents/WarningMessage";
 import BuyCoupon from "./main/coupons/buy/BuyCoupon";
+import DeleteCoupon from "./main/coupons/delete/DeleteCoupon";
+import DeleteCompany from "./main/companies/delete/DeleteCompany";
+import DeleteCustomer from "./main/customers/delete/DeleteCustomer";
 
 const Main = (): JSX.Element => {
 
@@ -92,6 +95,15 @@ const Main = (): JSX.Element => {
                     </Route>
                     <Route exact path={ClientURL.buyCoupon + "/:id"}>
                         <BuyCoupon link={ServerURL.buyCoupon} />
+                    </Route>
+                    <Route exact path={ClientURL.deleteCoupon + "/:id"}>
+                        <DeleteCoupon link={ServerURL.deleteCoupon} />
+                    </Route>
+                    <Route exact path={ClientURL.deleteCompany + "/:id"}>
+                        <DeleteCompany link={ServerURL.deleteCompany} />
+                    </Route>
+                    <Route exact path={ClientURL.deleteCustomer + "/:id"}>
+                        <DeleteCustomer link={ServerURL.deleteCustomer} />
                     </Route>
                     <Route path='*'>
                         <Page404 />

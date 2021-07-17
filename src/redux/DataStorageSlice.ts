@@ -4,7 +4,7 @@ import {CouponInt} from "../interfaces/CouponInt";
 export const DataStorageSlice = createSlice({
     name: "DataStorageSlice",
     initialState: {
-        couponsStorage: [] as [],
+        couponsStorage: [],
         companiesStorage: [],
         customersStorage: [],
     },

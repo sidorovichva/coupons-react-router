@@ -12,19 +12,19 @@ const CouponRep = (coupon: CouponInt) => {
 
     const location = useLocation().pathname
 
-    const { randomGenerator } = useUniqueIndex();
+    //const { randomGenerator } = useUniqueIndex();
 
-    const { handleUpdate } = UpdateBean(coupon);
+    const { passBeanToUpdate } = UpdateBean(coupon);
 
-    const { handleDelete, isToDelete, deleteLink, axiosDelete} = DeleteBean(
-        coupon.id,
-        ServerURL.deleteCoupon,
-        ClientURL.companyCoupons,
-        ClientURL.companyCoupons
-    )
+    // const { handleDelete, isToDelete, deleteLink, axiosDelete} = DeleteBean(
+    //     coupon.id,
+    //     ServerURL.deleteCoupon,
+    //     ClientURL.companyCoupons,
+    //     ClientURL.companyCoupons
+    // )
 
     return (
-        isToDelete ? <ServerRequest method={axiosDelete} link={deleteLink} /> :
+        //isToDelete ? <ServerRequest method={axiosDelete} link={deleteLink} /> :
             //isToBuy ? <div></div> :
                 <div className="CouponRep">
                     <div className="title">{coupon.title}</div>
@@ -36,20 +36,25 @@ const CouponRep = (coupon: CouponInt) => {
                             <Link
                                 className="Link"
                                 to={ ClientURL.buyCoupon + `/${coupon.id}` }
-                                onClick={ randomGenerator }
+                                //onClick={ randomGenerator }
                             >Buy</Link>}
                         {location === ClientURL.companyCoupons &&
                             <Link
                                 className="Link"
                                 to={ ClientURL.updateCoupon }
-                                onClick={ handleUpdate }
+                                onClick={ passBeanToUpdate }
                             >Update</Link>}
                         {location === ClientURL.companyCoupons &&
-                            <div
-                                className="delete"
-                                onClick={ handleDelete }
-                            >Delete</div>}
+                            // <div
+                            //     className="delete"
+                            //     onClick={ handleDelete }
+                            // >Delete</div>}
+                            <Link
+                                className="Link"
+                                to={ ClientURL.deleteCoupon + `/${coupon.id}` }
+                            >Delete</Link>}
                     </div>}
+                    {/*{isToDelete && <ServerRequest method={axiosDelete} link={deleteLink} />}*/}
                 </div>
     );
 }

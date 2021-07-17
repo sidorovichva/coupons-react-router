@@ -36,8 +36,8 @@ const UpdateCompany = (): JSX.Element => {
             value2 === '' ? companyBean.email : value2,
             value3
         ],
-        historyPushIfSuccess,
-        historyPushIfFail
+        // historyPushIfSuccess,
+        // historyPushIfFail
     )
 
     return (
@@ -72,7 +72,14 @@ const UpdateCompany = (): JSX.Element => {
                     ]}
                 />
             </div>
-            {isSubmitted && <ServerRequest method={axiosMethod} link={link} body={body} />}
+            {isSubmitted &&
+                <ServerRequest
+                    method={axiosMethod}
+                    link={link}
+                    body={body}
+                    pushSuccess={historyPushIfSuccess}
+                    pushFail={historyPushIfFail}
+                />}
         </form>
     );
 }

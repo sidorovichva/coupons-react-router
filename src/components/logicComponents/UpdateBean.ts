@@ -25,7 +25,7 @@ const UpdateBean = (
         }
     }
 
-    return { handleUpdate };
+    return { passBeanToUpdate: handleUpdate };
 }
 
 export default UpdateBean;

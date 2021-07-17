@@ -10,12 +10,17 @@ import {ClientURL} from "../../../../enums/ClientURL";
 import FormField from "../../../../components/logicComponents/FormField";
 import BodyConstructor from "../../../../components/logicComponents/BodyConstructor";
 import useAxios from "../../../../hooks/axiosHooks/useAxios";
+import {useSelector} from "react-redux";
+import ConfigureStore from "../../../../redux/StoreConfig";
+import {Role} from "../../../../enums/Role";
 
 const AddCustomer = (): JSX.Element => {
 
+    const { role } = useSelector((state) => ConfigureStore.getState().LoginSlice);
+
     const [link] = useState(ServerURL.addCustomer);
-    const [historyPushIfSuccess] = useState(ClientURL.login);
-    const [historyPushIfFail] = useState(ClientURL.allCoupons);
+    const [historyPushIfSuccess] = useState(role === Role.ADMINISTRATOR ? ClientURL.allCustomers : ClientURL.login);
+    const [historyPushIfFail] = useState(role === Role.ADMINISTRATOR ? ClientURL.allCustomers : ClientURL.allCoupons);
     const axiosMethod = 'POST'
 
     const field1 = 'firstName';
@@ -31,8 +36,8 @@ const AddCustomer = (): JSX.Element => {
     const { handleSubmit, body, isSubmitted } = BodyConstructor(
         [field1, field2, field3, field4],
         [value1, value2, value3, value4],
-        historyPushIfSuccess,
-        historyPushIfFail
+        // historyPushIfSuccess,
+        // historyPushIfFail
     )
 
     const props = {
@@ -70,6 +75,7 @@ const AddCustomer = (): JSX.Element => {
                     {...props}
                     className={field4}
                     placeholder="password"
+                    required={true}
                     regex={RegExp(RegexPattern.password)}
                 />
             </div>
@@ -83,7 +89,14 @@ const AddCustomer = (): JSX.Element => {
                     ]}
                 />
             </div>
-            {isSubmitted && <ServerRequest link={link} method={axiosMethod} body={body} />}
+            {isSubmitted &&
+                <ServerRequest
+                    link={link}
+                    method={axiosMethod}
+                    body={body}
+                    pushSuccess={historyPushIfSuccess}
+                    pushFail={historyPushIfFail}
+                />}
         </form>
     );
 }

@@ -27,8 +27,8 @@ const AddCompany = (): JSX.Element => {
     const { handleSubmit, body, isSubmitted } = BodyConstructor(
         [field1, field2, field3],
         [value1, value2, value3],
-        historyPushIfSuccess,
-        historyPushIfFail
+        // historyPushIfSuccess,
+        // historyPushIfFail
     )
 
     const props = {
@@ -58,6 +58,7 @@ const AddCompany = (): JSX.Element => {
                     {...props}
                     className={field3}
                     placeholder="password"
+                    required={true}
                     regex={RegExp(RegexPattern.password)}
                 />
             </div>
@@ -70,7 +71,14 @@ const AddCompany = (): JSX.Element => {
                     ]}
                 />
             </div>
-            {isSubmitted && <ServerRequest link={link} method={axiosMethod} body={body} />}
+            {isSubmitted &&
+                <ServerRequest
+                    link={link}
+                    method={axiosMethod}
+                    body={body}
+                    pushSuccess={historyPushIfSuccess}
+                    pushFail={historyPushIfFail}
+                />}
         </form>
     );
 }

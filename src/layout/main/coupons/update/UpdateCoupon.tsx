@@ -56,8 +56,8 @@ const UpdateCoupon = (): JSX.Element => {
             value7 <= 0 ? couponBean.price : value7,
             value8
         ],
-        historyPushIfSuccess,
-        historyPushIfFail
+        // historyPushIfSuccess,
+        // historyPushIfFail
     )
 
     const { isStartBeforeEnd } = StartEndDatesChecker(
@@ -126,7 +126,14 @@ const UpdateCoupon = (): JSX.Element => {
                     ]}
                 />
             </div>
-            {isSubmitted && <ServerRequest method={axiosMethod} link={link} body={body} />}
+            {isSubmitted &&
+                <ServerRequest
+                    method={axiosMethod}
+                    link={link}
+                    body={body}
+                    pushSuccess={historyPushIfSuccess}
+                    pushFail={historyPushIfFail}
+                />}
         </form>
     );
 }

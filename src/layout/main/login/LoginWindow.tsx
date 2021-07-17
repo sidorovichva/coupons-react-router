@@ -23,8 +23,8 @@ const LoginWindow = (): JSX.Element => {
     const { handleSubmit, body, isSubmitted } = BodyConstructor(
         [field1, field2],
         [value1, value2],
-        historyPushIfSuccess,
-        historyPushIfFail
+        // historyPushIfSuccess,
+        // historyPushIfFail
     );
 
     return (
@@ -55,7 +55,13 @@ const LoginWindow = (): JSX.Element => {
             {/*<div>*/}
             {/*    <FormRegister />*/}
             {/*</div>*/}
-            {isSubmitted && <LoginPost body={body} />}
+            {/*{isSubmitted && <LoginPost body={body} />}*/}
+            {isSubmitted &&
+                <LoginPost
+                    body={body}
+                    pushSuccess={historyPushIfSuccess}
+                    pushFail={historyPushIfFail}
+                />}
         </form>
     )
 }

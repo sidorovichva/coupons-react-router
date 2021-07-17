@@ -1,27 +1,12 @@
 import './CustomerRep.css';
 import {CustomerInt} from "../../../../interfaces/CustomerInt";
 import {Link} from "react-router-dom";
-import ServerRequest from "../../../logicComponents/ServerRequest";
-import {ServerURL} from "../../../../enums/ServerURL";
 import {ClientURL} from "../../../../enums/ClientURL";
-import DeleteBean from "../../../logicComponents/DeleteBean";
 import UpdateBean from "../../../logicComponents/UpdateBean";
 
 const CustomerRep = (customer: CustomerInt) => {
 
-    const { handleUpdate } = UpdateBean(customer);
-
-    const {
-        handleDelete,
-        isToDelete,
-        deleteLink,
-        axiosDelete
-    } = DeleteBean(
-        customer.id,
-        ServerURL.deleteCustomer,
-        ClientURL.allCustomers,
-        ClientURL.allCustomers
-    )
+    const { passBeanToUpdate } = UpdateBean(customer);
 
     return (
         <div className="CustomerRep">
@@ -29,11 +14,16 @@ const CustomerRep = (customer: CustomerInt) => {
             <div className="lastName">{customer.lastName}</div>
             <div className="email">{customer.email}</div>
             <div className="actions">
-                <Link className="Link" to={ClientURL.updateCustomer} onClick={handleUpdate}>Update</Link>
-                <div className="delete" onClick={ handleDelete }>Delete</div>
+                <Link
+                    className="Link"
+                    to={ClientURL.updateCustomer}
+                    onClick={passBeanToUpdate}
+                >Update</Link>
+                <Link
+                    className="Link"
+                    to={ ClientURL.deleteCustomer + `/${customer.id}` }
+                >Delete</Link>
             </div>
-            {/*{isToDelete && <Delete link={deleteLink} />}*/}
-            {isToDelete && <ServerRequest method={axiosDelete} link={deleteLink} />}
         </div>
     );
 }

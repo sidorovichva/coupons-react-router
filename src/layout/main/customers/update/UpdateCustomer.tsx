@@ -39,8 +39,8 @@ const UpdateCustomer = (): JSX.Element => {
             value3 === '' ? customerBean.email : value3,
             value4
         ],
-        historyPushIfSuccess,
-        historyPushIfFail
+        // historyPushIfSuccess,
+        // historyPushIfFail
     )
 
     return (
@@ -83,7 +83,14 @@ const UpdateCustomer = (): JSX.Element => {
                     ]}
                 />
             </div>
-            {isSubmitted && <ServerRequest method={axiosMethod} link={link} body={body} />}
+            {isSubmitted &&
+                <ServerRequest
+                    method={axiosMethod}
+                    link={link}
+                    body={body}
+                    pushSuccess={historyPushIfSuccess}
+                    pushFail={historyPushIfFail}
+                />}
         </form>
     );
 }

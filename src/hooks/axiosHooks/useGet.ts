@@ -16,10 +16,11 @@ const useGet = (link: string, index?: number) => {
     console.log("---useGet---")
     console.log(index)
 
-    //const { couponsStorage, companiesStorage, customersStorage } =
-        //useSelector((state) => ConfigureStore.getState().DataStorageSlice);
+    const { couponsStorage, companiesStorage, customersStorage } =
+        useSelector((state) => ConfigureStore.getState().DataStorageSlice);
 
-    const [data, setData] = useState<[]>([]);
+    //const [data, setData] = useState<[]>([]);
+    const [data, setData] = useState([]);
     const [customerObject, setCustomerObject] = useState<CustomerInt>();
     const [companyObject, setCompanyObject] = useState<CompanyInt>();
 
@@ -33,7 +34,7 @@ const useGet = (link: string, index?: number) => {
     useEffect(() => {
 
         //console.log("couponsStorage: " + couponsStorage)
-        // if (couponsStorage !== []) {
+        // if (couponsStorage.length > 0) {
         //     console.log("***")
         //     setData(couponsStorage);
         //     console.log(data)
