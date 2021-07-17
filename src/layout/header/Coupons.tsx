@@ -14,7 +14,7 @@ const Coupons = (): JSX.Element => {
     const { foldMenu, isFolded } = useFoldMenu();
 
     return (
-        <div className="Coupons" >
+        <div className="Coupons">
             Coupons
             {isFolded && <ul className="dropdown">
                 {role === Role.COMPANY && <Link className="Link" to={ ClientURL.addCoupon } onClick={foldMenu}>Add coupon</Link>}

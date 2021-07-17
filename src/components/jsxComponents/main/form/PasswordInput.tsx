@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './PasswordInput.css';
 import {useDispatch} from "react-redux";
 import {setTextValue} from "../../../../redux/InputSlice";
+import {RegexPattern} from "../../../../enums/RegexPattern";
 
 interface Props {
     className: string
@@ -45,6 +46,7 @@ const PasswordInput: React.FC<Props> = ({
                 className={ className }
                 type={isExposed ? "text" : "password"}
                 placeholder={ placeholder === undefined ? '' : placeholder }
+                autoCapitalize = "none"
                 value={ returnValue }
                 onChange={(e) => setReturnValue(e.target.value)}
                 required
@@ -52,6 +54,7 @@ const PasswordInput: React.FC<Props> = ({
                 className={ className }
                 type={isExposed ? "text" : "password"}
                 placeholder={ placeholder === undefined ? '' : placeholder }
+                autoCapitalize = "none"
                 value={ returnValue }
                 onChange={(e) => setReturnValue(e.target.value)}
             />}
