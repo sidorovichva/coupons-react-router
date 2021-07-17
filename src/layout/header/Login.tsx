@@ -21,7 +21,7 @@ const Login = (): JSX.Element => {
 
     return (
         <div className="Login">
-            <Link className="loginButton" to={ ClientURL.login }>Login</Link>
+            <Link className="loginButton" to={ ClientURL.login } onClick={ foldMenu }>Login</Link>
             {isFolded && <ul className="dropdown">
                 <Link className="Link" to={ ClientURL.addCustomer } onClick={ foldMenu }>Register</Link>
             </ul>}

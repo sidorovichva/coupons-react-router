@@ -66,7 +66,6 @@
 
 .Login:hover .dropdown{
     display: block;
-    /*perspective: 1000px;*/
 }
 
 .Login .Link:hover > .dropdown .Link{

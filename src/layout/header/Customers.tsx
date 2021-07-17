@@ -17,7 +17,7 @@ const Customers = (): JSX.Element => {
         <div className="Customers">
             Customers
             {isFolded && <ul className="dropdown">
-                {role === Role.ADMINISTRATOR && <Link className="Link" to={ ClientURL.addCustomer } onClick={foldMenu}>Add customer</Link>}
+                {role === Role.ADMINISTRATOR && <Link className="Link" to={ ClientURL.addCustomer } onClick={ foldMenu }>Add customer</Link>}
                 <Link className="Link" to={ ClientURL.allCustomers } onClick={foldMenu}>All customers</Link>
             </ul>}
         </div>

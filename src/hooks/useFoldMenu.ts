@@ -10,7 +10,7 @@ const useFoldMenu = () => {
 
     const foldMenu = () => {
         setIsFolded(false);
-        setTimeout(resetFolding, 100);
+        setTimeout(resetFolding, 500);
     }
 
 
