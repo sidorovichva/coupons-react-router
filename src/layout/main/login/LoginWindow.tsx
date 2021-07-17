@@ -32,6 +32,7 @@ const LoginWindow = (): JSX.Element => {
             <div>
                 <TextInput
                     className={field1}
+                    type="email"
                     placeholder="e-mail"
                     required={true}
                     regex={RegExp(RegexPattern.email)}

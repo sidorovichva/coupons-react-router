@@ -60,6 +60,7 @@ const UpdateCustomer = (): JSX.Element => {
             <div>
                 <TextInput
                     className={field3}
+                    type="email"
                     placeholder="email"
                     regex={RegExp(RegexPattern.email)}
                 />

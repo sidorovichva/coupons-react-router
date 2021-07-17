@@ -46,7 +46,6 @@ const PasswordInput: React.FC<Props> = ({
                 className={ className }
                 type={isExposed ? "text" : "password"}
                 placeholder={ placeholder === undefined ? '' : placeholder }
-                autoCapitalize = "none"
                 value={ returnValue }
                 onChange={(e) => setReturnValue(e.target.value)}
                 required
@@ -54,7 +53,6 @@ const PasswordInput: React.FC<Props> = ({
                 className={ className }
                 type={isExposed ? "text" : "password"}
                 placeholder={ placeholder === undefined ? '' : placeholder }
-                autoCapitalize = "none"
                 value={ returnValue }
                 onChange={(e) => setReturnValue(e.target.value)}
             />}

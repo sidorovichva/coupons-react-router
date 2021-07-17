@@ -47,6 +47,7 @@ const AddCompany = (): JSX.Element => {
                 <TextInput
                     {...props}
                     className={field2}
+                    type="email"
                     placeholder="email"
                     regex={RegExp(RegexPattern.email)}
                 />

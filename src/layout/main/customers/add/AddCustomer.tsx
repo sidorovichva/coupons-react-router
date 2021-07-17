@@ -63,6 +63,7 @@ const AddCustomer = (): JSX.Element => {
                 <TextInput
                     {...props}
                     className={field3}
+                    type="email"
                     placeholder="e-mail"
                     regex={RegExp(RegexPattern.email)}
                 />

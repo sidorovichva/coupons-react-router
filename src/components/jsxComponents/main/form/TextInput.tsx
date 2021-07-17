@@ -6,6 +6,7 @@ import {RegexPattern} from "../../../../enums/RegexPattern";
 
 interface Props {
     className: string
+    type?: string,
     isCorrect?: boolean,
     placeholder?: string
     required?: boolean
@@ -14,6 +15,7 @@ interface Props {
 
 const TextInput: React.FC<Props> = ({
     className,
+    type,
     isCorrect,
     placeholder,
     required,
@@ -29,7 +31,7 @@ const TextInput: React.FC<Props> = ({
         const innerBoolean = regex === undefined ? true : !!returnValue.toLowerCase().match(regex)
         setMatches(innerBoolean)
         dispatch(setTextValue({
-            textInputValue: regex === RegExp(RegexPattern.email) ? returnValue.toLowerCase() : returnValue,
+            textInputValue: type === 'email' ? returnValue.toLowerCase() : returnValue,
             fieldValue: className,
             matchesValue: innerBoolean
         }));
@@ -40,9 +42,8 @@ const TextInput: React.FC<Props> = ({
             <div className="TextInput">
                 <input
                     className={ className }
-                    type="text"
+                    type={type === 'email' ? "email" : "text"}
                     placeholder={ placeholder === undefined ? '' : placeholder }
-                    autoCapitalize = {regex === RegExp(RegexPattern.email) ? "none" : "on"}
                     value={ returnValue }
                     onChange={(e) => setReturnValue(e.target.value)}
                 />
@@ -56,9 +57,8 @@ const TextInput: React.FC<Props> = ({
             <div className="TextInput">
                 <input
                     className={ className }
-                    type="text"
+                    type={type === 'email' ? "email" : "text"}
                     placeholder={ placeholder === undefined ? '' : placeholder }
-                    autoCapitalize = {regex === RegExp(RegexPattern.email) ? "none" : "on"}
                     value={ returnValue }
                     onChange={(e) => setReturnValue(e.target.value)}
                     required
