@@ -55,9 +55,7 @@ const UpdateCoupon = (): JSX.Element => {
             value6 <= 0 ? couponBean.amount : value6,
             value7 <= 0 ? couponBean.price : value7,
             value8
-        ],
-        // historyPushIfSuccess,
-        // historyPushIfFail
+        ]
     )
 
     const { isStartBeforeEnd } = StartEndDatesChecker(

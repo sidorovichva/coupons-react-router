@@ -34,10 +34,9 @@ const UpdateCompany = (): JSX.Element => {
             companyBean.id,
             value1 === '' ? companyBean.name : value1,
             value2 === '' ? companyBean.email : value2,
-            value3
-        ],
-        // historyPushIfSuccess,
-        // historyPushIfFail
+            //value3
+            value3 === '' ? 'NoNeedToUpdate' : value3
+        ]
     )
 
     return (
@@ -85,70 +84,3 @@ const UpdateCompany = (): JSX.Element => {
 }
 
 export default UpdateCompany;
-
-// import React, {SyntheticEvent, useEffect, useState} from 'react';
-// import './UpdateCompany.css';
-// import {useDispatch, useSelector} from "react-redux";
-// import ConfigureStore from "../../../redux/StoreConfig";
-// import FormSubmit from "../../../components/form/FormSubmit";
-// import {setHistoryPushLink} from "../../../redux/HistoryPushSlice";
-// import ServerRequest from "../../../components/main/actions/ServerRequest";
-// import {ClientURL} from "../../../enums/ClientURL";
-// import {ServerURL} from "../../../enums/ServerURL";
-// import TextInput from "../../../components/form/TextInput";
-//
-// const UpdateCompany = (): JSX.Element => {
-//
-//     const { value, field } = useSelector((state) => ConfigureStore.getState().InputSlice);
-//     const { companyBean } = useSelector((state) => ConfigureStore.getState().UpdateBeanSlice);
-//     const dispatch = useDispatch();
-//
-//     const [companyName, setCompanyName] = useState(companyBean.name);
-//     const [companyEmail, setCompanyEmail] = useState(companyBean.email);
-//     const [companyPassword, setCompanyPassword] = useState(companyBean.password);
-//
-//     useEffect(() => {
-//         if (field === 'companyName') setCompanyName(value);
-//         else if (field === 'companyEmail') setCompanyEmail(value);
-//         else if (field === 'companyPassword') setCompanyPassword(value);
-//     }, [value, field])
-//
-//     const [isSubmitted, setIsSubmitted] = useState(false);
-//     const [link] = useState(ServerURL.updateCompany);
-//     const [body, setBody] = useState('');
-//
-//     const handleSubmit = (args: SyntheticEvent) => {
-//         args.preventDefault();
-//         setBody(JSON.stringify({
-//             "id": companyBean.id,
-//             "name": companyName,
-//             "email": companyEmail,
-//             "password": companyPassword
-//         }));
-//         dispatch(setHistoryPushLink({
-//             historyPushSuccessValue: ClientURL.allCompanies,
-//             historyPushFailValue: ClientURL.allCompanies
-//         }))
-//         setIsSubmitted(true);
-//     }
-//
-//     return (
-//         <form className="UpdateCompany" onSubmit={ handleSubmit }>
-//             <div>
-//                 <TextInput className="companyName" placeholder="company title"/>
-//             </div>
-//             <div>
-//                 <TextInput className="companyEmail" placeholder="email"/>
-//             </div>
-//             <div>
-//                 <TextInput className="companyPassword" placeholder="password"/>
-//             </div>
-//             <div>
-//                 <FormSubmit />
-//             </div>
-//             {isSubmitted && <ServerRequest method={"PUT"} link={link} body={body} />}
-//         </form>
-//     );
-// }
-//
-// export default UpdateCompany;

@@ -2,9 +2,6 @@ import React from 'react';
 import './CompaniesView.css';
 import {CompanyInt} from "../../../interfaces/CompanyInt";
 import CompanyRep from "../../../components/jsxComponents/main/beans/CompanyRep";
-import useGet from "../../../hooks/axiosHooks/useGet";
-import {useSelector} from "react-redux";
-import ConfigureStore from "../../../redux/StoreConfig";
 import {useQuery} from "react-query";
 import FetchData from "../../../components/logicComponents/FetchData";
 
@@ -13,10 +10,6 @@ interface Props {
 }
 
 const CompaniesView: React.FC<Props> = ({link}): JSX.Element => {
-
-    // const { uniqueNumber } = useSelector((state) => ConfigureStore.getState().UniqueIndexSlice);
-    //
-    // const { data: companies } = useGet(link, uniqueNumber);
 
     const { data: companies, status } = useQuery([link, link], () => FetchData(link), {
         retryDelay: 10000

@@ -13,9 +13,6 @@ import BodyConstructor from "../../../../components/logicComponents/BodyConstruc
 import {Method} from "axios";
 import {RegexPattern} from "../../../../enums/RegexPattern";
 import StartEndDatesChecker from "../../../../components/logicComponents/StartEndDatesChecker";
-import {useQuery} from "react-query";
-import FetchData from "../../../../components/logicComponents/FetchData";
-import PostData from "../../../../components/logicComponents/PostData";
 
 const AddCoupon = (): JSX.Element => {
 
@@ -44,9 +41,7 @@ const AddCoupon = (): JSX.Element => {
 
     const { handleSubmit, body, isSubmitted } = BodyConstructor(
         [field1, field2, field3, field4, field5, field6, field7, field8],
-        [value1, value2, value3, value4, value5, value6, value7, value8],
-        // historyPushIfSuccess,
-        // historyPushIfFail
+        [value1, value2, value3, value4, value5, value6, value7, value8]
     );
 
     const { isStartBeforeEnd } = StartEndDatesChecker(value4, value5);
@@ -54,10 +49,6 @@ const AddCoupon = (): JSX.Element => {
     const props = {
         required: true
     }
-
-    // useQuery([link, link, body], () => PostData(link, body), {
-    //     enabled: Boolean(isSubmitted)
-    // });
 
     return (
         <form className="AddCoupon" onSubmit={ handleSubmit }>

@@ -9,7 +9,6 @@ import {ServerURL} from "../../../../enums/ServerURL";
 import {ClientURL} from "../../../../enums/ClientURL";
 import FormField from "../../../../components/logicComponents/FormField";
 import BodyConstructor from "../../../../components/logicComponents/BodyConstructor";
-import useAxios from "../../../../hooks/axiosHooks/useAxios";
 import {useSelector} from "react-redux";
 import ConfigureStore from "../../../../redux/StoreConfig";
 import {Role} from "../../../../enums/Role";
@@ -35,9 +34,7 @@ const AddCustomer = (): JSX.Element => {
 
     const { handleSubmit, body, isSubmitted } = BodyConstructor(
         [field1, field2, field3, field4],
-        [value1, value2, value3, value4],
-        // historyPushIfSuccess,
-        // historyPushIfFail
+        [value1, value2, value3, value4]
     )
 
     const props = {

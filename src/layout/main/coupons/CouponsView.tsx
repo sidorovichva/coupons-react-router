@@ -2,18 +2,14 @@ import React from "react";
 import {CouponInt} from "../../../interfaces/CouponInt";
 import CouponRep from "../../../components/jsxComponents/main/beans/CouponRep";
 import './CouponsView.css'
-import {useQuery, QueryClient} from "react-query";
+import {useQuery} from "react-query";
 import FetchData from "../../../components/logicComponents/FetchData";
-import {useLocation} from "react-router-dom";
-import {ClientURL} from "../../../enums/ClientURL";
 
 interface Props {
     link: string
 }
 
 const CouponsView: React.FC<Props> = ({link}): JSX.Element => {
-
-    const location = useLocation().pathname
 
     const {data: coupons, status} = useQuery([link, link], () => FetchData(link), {
         retryDelay: 10000
@@ -29,8 +25,6 @@ const CouponsView: React.FC<Props> = ({link}): JSX.Element => {
                     </div>
                 )
             )}
-            {/*{location === ClientURL.notCustomerCoupons &&*/}
-            {/*<div className="message">Looks like you bought all the coupons!</div>}*/}
         </div>
     );
 }
