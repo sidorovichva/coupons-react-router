@@ -5,35 +5,35 @@ import './DropDownMenu.css'
 import {Link} from "react-router-dom";
 import {Role} from "../../enums/Role";
 import {ClientURL} from "../../enums/ClientURL";
-import useUniqueIndex from "../../hooks/useUniqueIndex";
+import useFoldMenu from "../../hooks/useFoldMenu";
 
 const DropDownMenu = (): JSX.Element => {
 
     const { role } = useSelector((state) => ConfigureStore.getState().LoginSlice);
 
-    const { randomGenerator } = useUniqueIndex();
+    const { foldMenu, isFolded } = useFoldMenu();
 
     return (
         <div className="DropDownMenu">
             Menu
-            <ul className="dropdown">
+            {isFolded && <ul className="dropdown">
                 {role === Role.COMPANY &&
-                    <Link className="Link" to={ ClientURL.addCoupon } >Add coupon</Link>}
+                    <Link className="Link" to={ ClientURL.addCoupon } onClick={ foldMenu }>Add coupon</Link>}
                 {role === Role.CUSTOMER &&
-                    <Link className="Link" to={ ClientURL.customerCoupons } onClick={ randomGenerator }>My coupons</Link>}
+                    <Link className="Link" to={ ClientURL.customerCoupons } onClick={ foldMenu }>My coupons</Link>}
                 {role === Role.COMPANY &&
-                    <Link className="Link" to={ ClientURL.companyCoupons } onClick={ randomGenerator }>Issued coupons</Link>}
+                    <Link className="Link" to={ ClientURL.companyCoupons } onClick={ foldMenu }>Issued coupons</Link>}
                 {role === Role.CUSTOMER &&
-                    <Link className="Link" to={ ClientURL.notCustomerCoupons } onClick={ randomGenerator }>Go shopping</Link>}
-                <Link className="Link" to={ ClientURL.allCoupons } onClick={ randomGenerator }>All coupons</Link>
+                    <Link className="Link" to={ ClientURL.notCustomerCoupons } onClick={ foldMenu }>Go shopping</Link>}
+                <Link className="Link" to={ ClientURL.allCoupons } onClick={ foldMenu }>All coupons</Link>
                 {role === Role.ADMINISTRATOR &&
-                    <Link className="Link" to={ ClientURL.addCompany }>Add company</Link>}
-                <Link className="Link" to={ ClientURL.allCompanies } onClick={ randomGenerator }>All companies</Link>
+                    <Link className="Link" to={ ClientURL.addCompany } onClick={ foldMenu }>Add company</Link>}
+                <Link className="Link" to={ ClientURL.allCompanies } onClick={ foldMenu }>All companies</Link>
                 {role === Role.ADMINISTRATOR &&
-                    <Link className="Link" to={ ClientURL.addCustomer }>Add customer</Link>}
+                    <Link className="Link" to={ ClientURL.addCustomer } onClick={ foldMenu }>Add customer</Link>}
                 {role === Role.ADMINISTRATOR &&
-                    <Link className="Link" to={ ClientURL.allCustomers } onClick={ randomGenerator }>All customers</Link>}
-            </ul>
+                    <Link className="Link" to={ ClientURL.allCustomers } onClick={ foldMenu }>All customers</Link>}
+            </ul>}
         </div>
     );
 }

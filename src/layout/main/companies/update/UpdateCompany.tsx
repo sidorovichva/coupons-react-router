@@ -34,7 +34,6 @@ const UpdateCompany = (): JSX.Element => {
             companyBean.id,
             value1 === '' ? companyBean.name : value1,
             value2 === '' ? companyBean.email : value2,
-            //value3
             value3 === '' ? 'NoNeedToUpdate' : value3
         ]
     )

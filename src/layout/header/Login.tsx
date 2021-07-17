@@ -4,25 +4,27 @@ import {Link} from "react-router-dom";
 import {ClientURL} from "../../enums/ClientURL";
 import {useDispatch} from "react-redux";
 import {setHistoryPushLink} from "../../redux/HistoryPushSlice";
+import useFoldMenu from "../../hooks/useFoldMenu";
 
 const Login = (): JSX.Element => {
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
+    //
+    // const handleRegister = () => {
+    //     dispatch(setHistoryPushLink({
+    //         historyPushSuccessValue: ClientURL.login,
+    //         historyPushFailValue: ClientURL.addCustomer
+    //     }))
+    // }
 
-    const handleRegister = () => {
-        console.log("^^^")
-        dispatch(setHistoryPushLink({
-            historyPushSuccessValue: ClientURL.login,
-            historyPushFailValue: ClientURL.addCustomer
-        }))
-    }
+    const { foldMenu, isFolded } = useFoldMenu();
 
     return (
         <div className="Login">
             <Link className="loginButton" to={ ClientURL.login }>Login</Link>
-            <ul className="dropdown">
-                <Link className="Link" to={ ClientURL.addCustomer } onClick={handleRegister}>Register</Link>
-            </ul>
+            {isFolded && <ul className="dropdown">
+                <Link className="Link" to={ ClientURL.addCustomer } onClick={ foldMenu }>Register</Link>
+            </ul>}
         </div>
     );
 }

@@ -2,6 +2,7 @@ import './Logo.css';
 import React from "react";
 import {Link, useHistory} from "react-router-dom";
 import {ClientURL} from "../../enums/ClientURL";
+import useFoldMenu from "../../hooks/useFoldMenu";
 
 function Logo():JSX.Element {
 
@@ -11,12 +12,14 @@ function Logo():JSX.Element {
         history.push(ClientURL.home)
     }
 
+    const { foldMenu, isFolded } = useFoldMenu();
+
     return (
         <div className="Logo">
             <h1 className="Home" onClick={ handleHome }>CMS</h1>
-            <ul className="dropdown">
-                <Link className="Link" to={ ClientURL.about } >About</Link>
-            </ul>
+            {isFolded && <ul className="dropdown">
+                <Link className="Link" to={ ClientURL.about } onClick={ foldMenu }>About</Link>
+            </ul>}
         </div>
     );
 }
