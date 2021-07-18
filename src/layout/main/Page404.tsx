@@ -1,19 +1,26 @@
 import React from 'react';
 import './Page404.css';
+import Lottie from 'react-lottie';
+import animationData from './../../assets/animation404.json';
 
 const Page404 = (): JSX.Element => {
-    
-    
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
+
     return (
         <div className="Page404" >
-            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-            {/*<lottie-player*/}
-            {/*    src="https://assets10.lottiefiles.com/packages/lf20_rDB3bm.json"*/}
-            {/*    background="transparent"*/}
-            {/*    speed="1.5"*/}
-            {/*    style="width: 300px; height: 300px;"*/}
-            {/*    loop  autoplay>*/}
-            {/*</lottie-player>*/}
+            <Lottie
+                options={defaultOptions}
+                //height={400}
+                //width={400}
+            />
         </div>
     );
 }

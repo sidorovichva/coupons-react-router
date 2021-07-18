@@ -25,7 +25,7 @@ const useCurrentLocation = () => {
         case(ClientURL.profileCustomer): {return 'Profile';}
         case(ClientURL.profileCompany): {return 'Profile';}
         case(ClientURL.buyCoupon): {return 'Buy coupon';}
-        default: {return 'Page not found';}
+        default: {return '';}
     }
 }
 

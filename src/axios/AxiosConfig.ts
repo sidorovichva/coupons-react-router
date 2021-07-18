@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {ServerURL} from "../enums/ServerURL";
 
-const token = localStorage.getItem("Authorization")
+const token = localStorage.getItem("Authorization");
 
 const AxiosConfig = axios.create({
 

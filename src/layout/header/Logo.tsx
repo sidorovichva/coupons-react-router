@@ -16,7 +16,7 @@ function Logo():JSX.Element {
 
     return (
         <div className="Logo">
-            <h1 className="Home" onClick={() => {handleHome(); foldMenu(); } }>CMS</h1>
+            <h1 className="Home" onClick={ handleHome }>CMS</h1>
             {isFolded && <ul className="dropdown">
                 <Link className="Link" to={ ClientURL.about } onClick={ foldMenu }>About</Link>
             </ul>}

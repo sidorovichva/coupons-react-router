@@ -4,12 +4,12 @@
     flex-direction:row;
     align-items: center;
     background-color: darkgrey;
-    padding: 5px;
-    margin: 1vh;
+    padding: 0.5rem;
+    margin: 0.5rem;
 }
 
 .CustomerRep:hover {
-    box-shadow: 2px 2px 2px green;
+    box-shadow: 0.2rem 0.2rem 0.2rem green;
 }
 
 .CustomerRep > div{
@@ -86,12 +86,6 @@
         flex-direction:column;
         align-items: center;
         background-color: darkgrey;
-        padding: 5px;
-        margin: 1vh;
-    }
-
-    .CustomerRep:hover {
-        box-shadow: 2px 2px 2px green;
     }
 
     .CustomerRep > div{
