@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './DateSearch.css';
+import './DateFilter.css';
 import {useDispatch} from "react-redux";
 import {setTextValue} from "../../../../redux/InputSlice";
 import {endDateEntered} from "../../../../redux/PressEnterSlice";
@@ -8,7 +8,7 @@ interface Props {
     className: string
 }
 
-const DateSearch: React.FC<Props> = ({
+const DateFilter: React.FC<Props> = ({
     className
 }): JSX.Element => {
 
@@ -29,7 +29,7 @@ const DateSearch: React.FC<Props> = ({
     }
 
     return(
-        <div className="DateSearch">
+        <div className="DateFilter">
             <input
                 onMouseOut={ handleMouseOut }
                 className={ className }
@@ -42,4 +42,4 @@ const DateSearch: React.FC<Props> = ({
     )
 };
 
-export default DateSearch;
+export default DateFilter;

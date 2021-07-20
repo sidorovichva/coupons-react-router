@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './PriceInput.css';
+import './PriceFilter.css';
 import {useDispatch} from "react-redux";
 import {setNumericValue} from "../../../../redux/InputSlice";
 import {priceEntered} from "../../../../redux/PressEnterSlice";
@@ -10,7 +10,7 @@ interface Props {
     min?: number
 }
 
-const PriceInput: React.FC<Props> = ({
+const PriceFilter: React.FC<Props> = ({
     className,
     placeholder,
     min,
@@ -38,7 +38,7 @@ const PriceInput: React.FC<Props> = ({
     }
 
     return(
-        <div className="PriceInput">
+        <div className="PriceFilter">
             <input
                 onKeyDown={ handleEnter }
                 onMouseOut={ handleMouseOut }
@@ -54,4 +54,4 @@ const PriceInput: React.FC<Props> = ({
     )
 };
 
-export default PriceInput;
+export default PriceFilter;

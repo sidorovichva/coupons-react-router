@@ -1,15 +1,15 @@
-import './CustomerRep.css';
+import './Customer.css';
 import {CustomerInt} from "../../../../interfaces/CustomerInt";
 import {Link} from "react-router-dom";
 import {ClientURL} from "../../../../enums/ClientURL";
 import UpdateBean from "../../../logicComponents/UpdateBean";
 
-const CustomerRep = (customer: CustomerInt) => {
+const Customer = (customer: CustomerInt) => {
 
     const { passBeanToUpdate } = UpdateBean(customer);
 
     return (
-        <div className="CustomerRep">
+        <div className="Customer">
             <div className="firstName">{customer.firstName}</div>
             <div className="lastName">{customer.lastName}</div>
             <div className="email">{customer.email}</div>
@@ -28,4 +28,4 @@ const CustomerRep = (customer: CustomerInt) => {
     );
 }
 
-export default CustomerRep;
+export default Customer;

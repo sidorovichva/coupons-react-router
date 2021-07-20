@@ -53,31 +53,23 @@ const CouponsView: React.FC<Props> = ({link}): JSX.Element => {
     const { numValue: value4 } = FormField(field4);
 
     useEffect(() => {
-        if (value1 !== '') {
-            setTitle(value1)
-            setActiveParameter(1);
-        }
+        setTitle(value1);
+        setActiveParameter(value1 !== '' ? 1 : 0)
     }, [value1]);
 
     useEffect(() => {
-        if (value2 !== '') {
-            setDescription(value2)
-            setActiveParameter(2);
-        }
+        setDescription(value2);
+        setActiveParameter(value2 !== '' ? 2 : 0)
     }, [value2]);
 
     useEffect(() => {
-        if (value3 !== '') {
-            setDate(value3)
-            setActiveParameter(3);
-        }
+        setDate(value3);
+        setActiveParameter(value3 !== '' ? 3 : 0)
     }, [value3]);
 
     useEffect(() => {
-        if (value4 > 0) {
-            setPrice(value4);
-            setActiveParameter(4);
-        }
+        setPrice(value4);
+        setActiveParameter(value4 > 0 ? 4 : 0)
     }, [value4]);
 
     return (

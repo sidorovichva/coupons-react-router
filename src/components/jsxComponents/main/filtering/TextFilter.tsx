@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './TitleSearch.css';
+import './TextFilter.css';
 import {useDispatch} from "react-redux";
 import {setTextValue} from "../../../../redux/InputSlice";
 import {descriptionEntered, titleEntered} from "../../../../redux/PressEnterSlice";
@@ -8,7 +8,7 @@ interface Props {
     className: string
 }
 
-const TitleSearch: React.FC<Props> = ({
+const TextFilter: React.FC<Props> = ({
     className,
 }): JSX.Element => {
 
@@ -18,7 +18,7 @@ const TitleSearch: React.FC<Props> = ({
 
     useEffect(() => {
         dispatch(setTextValue({
-            textInputValue: returnValue,
+            textInputValue: returnValue.toLowerCase(),
             fieldValue: className,
         }));
     }, [returnValue] )
@@ -36,7 +36,7 @@ const TitleSearch: React.FC<Props> = ({
     }
 
     return(
-        <div className="TitleSearch">
+        <div className="TextFilter">
             <input
                 onKeyDown={ handleEnter }
                 onMouseOut={ handleMouseOut }
@@ -50,4 +50,4 @@ const TitleSearch: React.FC<Props> = ({
     )
 };
 
-export default TitleSearch;
+export default TextFilter;

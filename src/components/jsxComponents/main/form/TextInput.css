@@ -16,7 +16,6 @@
 textarea, input {
     text-transform: none;
     letter-spacing: normal;
-
 }
 
 .TextInput > input:hover {

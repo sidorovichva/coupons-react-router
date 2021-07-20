@@ -1,4 +1,4 @@
-.CustomerRep {
+.Company {
     height: 1.5rem;
     display: flex;
     flex-direction:row;
@@ -7,29 +7,24 @@
     padding: 0.5rem;
     margin: 0.5rem;
 }
-
-.CustomerRep:hover {
+.Company:hover {
     box-shadow: 0.2rem 0.2rem 0.2rem green;
 }
 
-.CustomerRep > div{
+.Company > div{
     border-bottom: none;
     display: flex;
 }
 
-.CustomerRep > .firstName{
-    width: 30%;
+.Company > .nameComp{
+    width: 50%;
 }
 
-.CustomerRep > .lastName{
-    width: 30%;
+.Company > .emailComp{
+    width: 50%;
 }
 
-.CustomerRep > .email{
-    width: 40%;
-}
-
-.CustomerRep > .actions {
+.Company > .actions {
     width: 15%;
     height: 100%;
     font-weight: bold;
@@ -39,27 +34,8 @@
     align-items: center;
 }
 
-.actions {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: inherit;
-    font-size: 0.75rem;
-}
-
-.actions > .Link{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    border: none;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-}
-
 .actions > .delete{
-    width: 50%;
+    width: 33%;
     height: 100%;
     display: flex;
     border: none;
@@ -68,27 +44,24 @@
     align-items: center;
 }
 
-.actions > div:hover {
-    background-color: green;
-    color: white;
-}
-
-.actions > .Link:hover {
+.actions > div:hover{
     background-color: green;
     color: white;
 }
 
 @media screen and (max-width: 759px) {
-    .CustomerRep {
-        height: 10rem;
+    .Company {
+        height: 7rem;
         justify-content: space-between;
         display: flex;
         flex-direction:column;
         align-items: center;
         background-color: darkgrey;
+        padding: 0.5rem;
+        margin: 0.5rem;
     }
 
-    .CustomerRep > div{
+    .Company > div{
         width: 100%;
         height: 100%;
         display: flex;
@@ -96,19 +69,15 @@
         justify-content: space-evenly;
     }
 
-    .CustomerRep > .firstName{
-        width: 100%;
+    .Company > .nameComp{
+        width: 50%;
     }
 
-    .CustomerRep > .lastName{
-        width: 100%;
+    .Company > .emailComp{
+        width: 50%;
     }
 
-    .CustomerRep > .email{
-        width: 100%;
-    }
-
-    .CustomerRep > .actions {
+    .Company > .actions {
         font-size: 1rem;
         font-weight: bold;
         width: 100%;

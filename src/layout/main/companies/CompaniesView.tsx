@@ -1,7 +1,7 @@
 import React from 'react';
 import './CompaniesView.css';
 import {CompanyInt} from "../../../interfaces/CompanyInt";
-import CompanyRep from "../../../components/jsxComponents/main/beans/CompanyRep";
+import Company from "../../../components/jsxComponents/main/beans/Company";
 import {useQuery} from "react-query";
 import FetchData from "../../../components/logicComponents/FetchData";
 
@@ -21,7 +21,7 @@ const CompaniesView: React.FC<Props> = ({link}): JSX.Element => {
             {status === 'loading' && <div>Loading...</div>}
             {status === 'success' && companies.map((company: CompanyInt) => (
                     <div key={ company.id }>
-                        <CompanyRep {...company}/>
+                        <Company {...company}/>
                     </div>
                 )
             )}

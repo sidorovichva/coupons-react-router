@@ -1,4 +1,4 @@
-import './CompanyRep.css';
+import './Company.css';
 import {CompanyInt} from "../../../../interfaces/CompanyInt";
 import {useSelector} from "react-redux";
 import ConfigureStore from "../../../../redux/StoreConfig";
@@ -6,14 +6,14 @@ import {Link} from "react-router-dom";
 import {ClientURL} from "../../../../enums/ClientURL";
 import UpdateBean from "../../../logicComponents/UpdateBean";
 
-const CompanyRep = (company: CompanyInt) => {
+const Company = (company: CompanyInt) => {
 
     const {role} = useSelector((state) => ConfigureStore.getState().LoginSlice);
 
     const { passBeanToUpdate } = UpdateBean(company);
 
     return (
-        <div className="CompanyRep">
+        <div className="Company">
             <div className="nameComp">{company.name}</div>
             <div className="emailComp">{company.email}</div>
             {role === 'ADMINISTRATOR' && <div className="actions">
@@ -30,4 +30,4 @@ const CompanyRep = (company: CompanyInt) => {
     );
 }
 
-export default CompanyRep;
+export default Company;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './CustomersView.css';
-import CustomerRep from "../../../components/jsxComponents/main/beans/CustomerRep";
+import Customer from "../../../components/jsxComponents/main/beans/Customer";
 import {CustomerInt} from "../../../interfaces/CustomerInt";
 import {useQuery} from "react-query";
 import FetchData from "../../../components/logicComponents/FetchData";
@@ -21,7 +21,7 @@ const CustomersView: React.FC<Props> = ({link}): JSX.Element => {
             {status === 'loading' && <div>Loading...</div>}
             {status === 'success' && customers.map((customer: CustomerInt) => (
                     <div key={ customer.id }>
-                        <CustomerRep {...customer}/>
+                        <Customer {...customer}/>
                     </div>
                 )
             )}

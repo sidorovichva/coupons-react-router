@@ -1,4 +1,4 @@
-.TitleSearch {
+.TextFilter {
     display: flex;
     align-items: center;
     width: 100%;
@@ -10,7 +10,7 @@
     bottom: -1rem;
 }
 
-.TitleSearch > input {
+.TextFilter > input {
     font-size: 1rem;
     width: 100%;
     /*border: none;*/
@@ -18,10 +18,10 @@
     /*background-color: inherit;*/
 }
 
-/*.PriceInput > input:hover {*/
+/*.PriceFilter > input:hover {*/
 /*    border: 2px solid green;*/
 /*}*/
 
-.TitleSearch > input:focus {
+.TextFilter > input:focus {
     border: 3px solid green;
 }
