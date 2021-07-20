@@ -4,7 +4,7 @@ interface Props {
 
 }
 
-const UserIcon: React.FC<Props> = ({  }): JSX.Element => {
+const UserIcon: React.FC<Props> = (): JSX.Element => {
 
     return (
         <svg className="UserIcon" viewBox="0 0 24 24">

@@ -11,16 +11,17 @@ const UpdateBean = (
     const dispatch = useDispatch();
 
     const handleUpdate = () => {
-        if ((<CompanyInt>bean).name) {
-            const company = (<CompanyInt>bean)
+        if ((bean as CompanyInt).name) {
+            const company = (bean as CompanyInt)
+            //const company = (<CompanyInt>bean)
             dispatch(setCompanyBean({companyBeanValue: company}))
         }
-        else if ((<CustomerInt>bean).firstName) {
-            const customer = (<CustomerInt>bean)
+        else if ((bean as CustomerInt).firstName) {
+            const customer = (bean as CustomerInt)
             dispatch(setCustomerBean({customerBeanValue: customer}))
         }
         else {
-            const coupon = (<CouponInt>bean)
+            const coupon = (bean as CouponInt)
             dispatch(setCouponBean({couponBeanValue: coupon}))
         }
     }

@@ -44,11 +44,14 @@ const DateInput: React.FC<Props> = ({
                     onChange={(e) => setReturnValue(e.target.value)}
                 />
                 {matches && (isCorrect || isCorrect === undefined) && <Check />}
+                <div className="placeHolder">
+                    {returnValue === '' ? placeholder : returnValue}
+                </div>
             </div>
         )
     } else {
         return(
-            <div className="DateInput">
+            <div className="DateInput" >
                 <input
                     className={ className }
                     type="date"
@@ -58,7 +61,11 @@ const DateInput: React.FC<Props> = ({
                     required
                 />
                 {matches && (isCorrect || isCorrect === undefined) && <Check />}
+                <div className="placeHolder" >
+                    {returnValue === '' ? placeholder : returnValue}
+                </div>
             </div>
+
         )
     }
 };
