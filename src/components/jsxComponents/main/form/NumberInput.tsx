@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './NumberInput.css';
 import {useDispatch} from "react-redux";
 import {setNumericValue} from "../../../../redux/InputSlice";
+import Check from "../../icons/Check";
 
 interface Props {
     className: string
@@ -49,9 +50,10 @@ const NumberInput: React.FC<Props> = ({
                     value={ returnValue }
                     onChange={(e) => setReturnValue(parseFloat((e.target.value) || ''))}
                 />
-                {matches && (isCorrect || isCorrect === undefined) && <svg className="check" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" />
-                </svg>}
+                {matches && (isCorrect || isCorrect === undefined) && <Check />}
+                {/*<svg className="check" viewBox="0 0 24 24">*/}
+                {/*    <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" />*/}
+                {/*</svg>}*/}
             </div>
         )
     } else {
@@ -67,9 +69,10 @@ const NumberInput: React.FC<Props> = ({
                     onChange={(e) => setReturnValue(parseFloat((e.target.value) || ''))}
                     required
                 />
-                {matches && (isCorrect || isCorrect === undefined) && <svg className="check" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" />
-                </svg>}
+                {matches && (isCorrect || isCorrect === undefined) && <Check />}
+                {/*<svg className="check" viewBox="0 0 24 24">*/}
+                {/*    <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" />*/}
+                {/*</svg>}*/}
             </div>
         )
     }
