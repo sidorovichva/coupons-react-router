@@ -24,7 +24,7 @@
     border: 3px solid green;
 }
 
-.NumberInput > input::placeholder {
+.DateInput > input::placeholder {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 0.75rem;
