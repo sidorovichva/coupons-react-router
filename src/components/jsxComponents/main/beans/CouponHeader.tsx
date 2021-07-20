@@ -10,11 +10,19 @@ import ArrowDown from "../../icons/ArrowDown";
 import ColumnTitle from "./header/ColumnTitle";
 
 interface Props {
-    activeParameter: number
+    activeParameter: number,
+    field1: string,
+    field2: string,
+    field3: string,
+    field4: string
 }
 
 const CouponHeader: React.FC<Props> = ({
-   activeParameter
+    activeParameter,
+    field1,
+    field2,
+    field3,
+    field4
 }): JSX.Element => {
 
     const { titleField, descriptionField, priceField, endDateField } = useSelector((state) => ConfigureStore.getState().PressEnterSlice);
@@ -83,22 +91,22 @@ const CouponHeader: React.FC<Props> = ({
             <div className="title">
                 <ArrowDown func={ handleTitleClick }/>
                 <ColumnTitle func={ handleResetAll } text="Title" number={1} activeParam={activeParameter} />
-                {title && <TextFilter className="titleSearch"/>}
+                {title && <TextFilter className={field1}/>}
             </div>
             <div className="description">
                 <ArrowDown func={ handleDescriptionClick }/>
                 <ColumnTitle func={ handleResetAll } text="Description" number={2} activeParam={activeParameter} />
-                {description && <TextFilter className="descriptionSearch"/>}
+                {description && <TextFilter className={field2}/>}
             </div>
             <div className="endDate">
                 <ArrowDown func={ handleEndDateClick }/>
                 <ColumnTitle func={ handleResetAll } text="Expiration" number={3} activeParam={activeParameter} />
-                {endDate && <DateFilter className="endDateSearch"/>}
+                {endDate && <DateFilter className={field3}/>}
             </div>
             <div className="price">
                 <ArrowDown func={ handlePriceClick }/>
                 <ColumnTitle func={ handleResetAll } text="Price" number={4} activeParam={activeParameter} />
-                {price && <PriceFilter className="maxPrice"/>}
+                {price && <PriceFilter className={field4}/>}
             </div>
             <div className="actions">Actions</div>
         </div>

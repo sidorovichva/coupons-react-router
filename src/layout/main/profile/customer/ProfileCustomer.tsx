@@ -1,7 +1,8 @@
 import React from 'react';
 import './ProfileCustomer.css';
 import ProfileElement from "../../../../components/jsxComponents/profile/ProfileElement";
-import useGet from "../../../../hooks/axiosHooks/useGet";
+import {useQuery} from "react-query";
+import FetchData from "../../../../components/logicComponents/FetchData";
 
 interface Props {
     link: string
@@ -9,13 +10,17 @@ interface Props {
 
 const ProfileCustomer: React.FC<Props> = ({link}): JSX.Element => {
 
-    const { customerObject: customer } = useGet(link)
+    const {data: customer, status} = useQuery(
+        ['getCustomer', link],
+        () => FetchData(link),
+        {retryDelay: 2000}
+    );
 
     return (
         <div className="ProfileCustomer">
-            <ProfileElement description="First Name" data={customer?.firstName} isChangeable={true}/>
-            <ProfileElement description="Last Name" data={customer?.lastName} isChangeable={true}/>
-            <ProfileElement description="E-mail" data={customer?.email} isChangeable={true}/>
+            {status === 'success' && <ProfileElement description="First Name" data={customer?.firstName} isChangeable={true}/>}
+            {status === 'success' && <ProfileElement description="Last Name" data={customer?.lastName} isChangeable={true}/>}
+            {status === 'success' && <ProfileElement description="E-mail" data={customer?.email} isChangeable={true}/>}
         </div>
     );
 }

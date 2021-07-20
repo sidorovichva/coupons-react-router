@@ -28,27 +28,3 @@ const FormField = (fieldName: string) => {
 }
 
 export default FormField;
-
-// import {useSelector} from "react-redux";
-// import ConfigureStore from "../../redux/StoreConfig";
-// import {useEffect, useState} from "react";
-//
-// const FormField = (fieldName: string) => {
-//
-//     const { numericInput, textInput, field } = useSelector((state) => ConfigureStore.getState().InputSlice);
-//
-//     const [textValue, setFieldValue] = useState<string>('');
-//     const [numValue, setNumValue] = useState<number>(0);
-//
-//     useEffect(() => {
-//         if (field === fieldName) setFieldValue(textInput);
-//     }, [textInput])
-//
-//     useEffect(() => {
-//         if (field === fieldName) setNumValue(numericInput);
-//     }, [numericInput])
-//
-//     return { textValue, numValue };
-// }
-//
-// export default FormField;

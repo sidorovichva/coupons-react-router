@@ -76,7 +76,14 @@ const CouponsView: React.FC<Props> = ({link}): JSX.Element => {
         <div className="CouponsGeneral">
             {status === 'error' && <div className="message">Error...</div>}
             {status === 'loading' && <div className="message">Loading...</div>}
-            {status === 'success' && <CouponHeader activeParameter={activeParameter}/>}
+            {status === 'success' &&
+                <CouponHeader
+                    activeParameter={activeParameter}
+                    field1={field1}
+                    field2={field2}
+                    field3={field3}
+                    field4={field4}
+                />}
             {status === 'success' && coupons.map((coupon: CouponInt) => (
                 <div key={coupon.id}>
                     {activeParameter === 0 && <Coupon {...coupon}/>}
@@ -91,35 +98,3 @@ const CouponsView: React.FC<Props> = ({link}): JSX.Element => {
 }
 
 export default CouponsView;
-
-// import React, {useState} from "react";
-// import {CouponInt} from "../../../interfaces/CouponInt";
-// import Coupon from "../../../components/jsxComponents/main/beans/Coupon";
-// import './CouponsView.css'
-// import useGet from "../../../hooks/axiosHooks/useGet";
-// import {useSelector} from "react-redux";
-// import ConfigureStore from "../../../redux/StoreConfig";
-//
-// interface Props {
-//     link: string
-// }
-//
-// const CouponGeneral: React.FC<Props> = ({link}): JSX.Element => {
-//
-//     const { uniqueNumber } = useSelector((state) => ConfigureStore.getState().UniqueIndexSlice);
-//
-//     const { data: coupons } = useGet(link, uniqueNumber)
-//
-//     return (
-//         <div className="CouponsGeneral">
-//             {coupons.map((coupon: CouponInt) => (
-//                     <div key={ coupon.id }>
-//                         <Coupon {...coupon}/>
-//                     </div>
-//                 )
-//             )}
-//         </div>
-//     );
-// }
-//
-// export default CouponGeneral;

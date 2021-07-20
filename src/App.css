@@ -14,11 +14,6 @@
     grid-row: 1/4;
   }
 
-  .Side {
-    grid-column: 1/4;
-    grid-row: 4/31;
-  }
-
   .Main {
     grid-column: 1/17;
     grid-row: 4/31;

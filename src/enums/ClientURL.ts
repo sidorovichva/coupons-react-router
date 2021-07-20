@@ -1,5 +1,4 @@
 export enum ClientURL {
-
     home = '/',
     login = '/login',
     about = '/about',

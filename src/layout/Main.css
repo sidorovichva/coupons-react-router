@@ -2,9 +2,7 @@
     display: flex;
     flex-direction: column;
     background-color: inherit;
-    /*align-content: center;*/
     align-items: center;
-    /*justify-content: center;*/
 }
 
 .top {
@@ -35,5 +33,4 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /*color: black;*/
 }

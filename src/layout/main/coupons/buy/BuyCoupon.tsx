@@ -1,10 +1,10 @@
 import './BuyCoupon.css';
-import {Method} from "axios";
 import { useParams } from "react-router-dom";
 import useAxios from "../../../../hooks/axiosHooks/useAxios";
 import useHistoryPush from "../../../../hooks/useHistoryPush";
 import {ClientURL} from "../../../../enums/ClientURL";
 import React from "react";
+import {Axios} from "../../../../enums/Axios";
 
 interface Props {
     link: string,
@@ -21,9 +21,11 @@ const BuyCoupon: React.FC<Props> = ({
         ClientURL.notCustomerCoupons
     );
 
-    const axiosMethod: Method = 'POST';
-
-    useAxios(link, axiosMethod, id);
+    useAxios(
+        link,
+        Axios.POST,
+        id
+    );
 
     return (
         <div className="BuyCoupon">

@@ -2,17 +2,12 @@
     width: 20%;
     height: 100%;
     float: left;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     cursor: pointer;
     position: relative;
-
     border-bottom: none;
-    /*display: inline-block;*/
-
     background-color: green;
 }
 
@@ -35,10 +30,6 @@
     padding: 0;
     margin: 0;
     display: inline-block;
-    /*background: lightgreen;*/
-    /*color: darkblue;*/
-    /*width: 1000px;*/
-    /*font-weight: 900;*/
 }
 
 .Login > ul > .Link {

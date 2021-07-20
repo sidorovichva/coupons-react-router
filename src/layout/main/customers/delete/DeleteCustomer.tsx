@@ -3,8 +3,8 @@ import './DeleteCustomer.css';
 import {useParams} from "react-router-dom";
 import useHistoryPush from "../../../../hooks/useHistoryPush";
 import {ClientURL} from "../../../../enums/ClientURL";
-import {Method} from "axios";
 import useAxios from "../../../../hooks/axiosHooks/useAxios";
+import {Axios} from "../../../../enums/Axios";
 
 interface Props {
     link: string,
@@ -21,11 +21,9 @@ const DeleteCustomer: React.FC<Props> = ({
         ClientURL.allCustomers
     );
 
-    const axiosMethod: Method = 'DELETE';
-
     useAxios(
         link + '/' + id,
-        axiosMethod
+        Axios.DELETE
     );
 
     return (

@@ -9,13 +9,14 @@ import {ServerURL} from "../../../../enums/ServerURL";
 import BodyConstructor from "../../../../components/logicComponents/BodyConstructor";
 import {RegexPattern} from "../../../../enums/RegexPattern";
 import PasswordInput from "../../../../components/jsxComponents/main/form/PasswordInput";
+import {Axios} from "../../../../enums/Axios";
 
 const AddCompany = (): JSX.Element => {
 
     const [link] = useState(ServerURL.addCompany);
     const [historyPushIfSuccess] = useState(ClientURL.allCompanies);
     const [historyPushIfFail] = useState(ClientURL.allCompanies);
-    const axiosMethod = 'POST'
+    const axiosMethod = Axios.POST;
     const field1 = 'name';
     const field2 = 'email';
     const field3 = 'password';

@@ -11,6 +11,7 @@ import FormField from "../../../../components/logicComponents/FormField";
 import BodyConstructor from "../../../../components/logicComponents/BodyConstructor";
 import PasswordInput from "../../../../components/jsxComponents/main/form/PasswordInput";
 import {RegexPattern} from "../../../../enums/RegexPattern";
+import {Axios} from "../../../../enums/Axios";
 
 const UpdateCompany = (): JSX.Element => {
 
@@ -19,7 +20,7 @@ const UpdateCompany = (): JSX.Element => {
     const [link] = useState(ServerURL.updateCompany);
     const [historyPushIfSuccess] = useState(ClientURL.allCompanies);
     const [historyPushIfFail] = useState(ClientURL.allCompanies);
-    const axiosMethod = 'PUT'
+    const axiosMethod = Axios.PUT;
     const field1 = 'name';
     const field2 = 'email';
     const field3 = 'password';

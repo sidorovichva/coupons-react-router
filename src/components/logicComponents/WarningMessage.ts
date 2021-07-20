@@ -21,12 +21,10 @@ const WarningMessage = () => {
 
     useEffect(() => {
         if (responseMessage !== '') {
-            //setIsWarningActive(false);
             deactivateWarning()
             setTimeout(activateWarning, flashTime);
             setTimeout(deactivateWarning, warningTime);
         }
-        //setTimeout(deactivateWarning, warningTime);
     }, [isChanged]);
 
     return { isWarningActive };

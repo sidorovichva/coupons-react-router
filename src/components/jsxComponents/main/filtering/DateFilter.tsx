@@ -21,7 +21,6 @@ const DateFilter: React.FC<Props> = ({
             textInputValue: returnValue,
             fieldValue: className,
         }));
-        //dispatch(endDateEntered())
     }, [returnValue])
 
     const handleMouseOut = () => {
@@ -34,7 +33,6 @@ const DateFilter: React.FC<Props> = ({
                 onMouseOut={ handleMouseOut }
                 className={ className }
                 type="date"
-                // placeholder={}
                 value={ returnValue }
                 onChange={(e) => setReturnValue(e.target.value)}
             />
