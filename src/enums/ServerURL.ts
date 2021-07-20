@@ -1,6 +1,6 @@
 export enum ServerURL {
-    baseAddress = 'http://localhost:8080',
-    //baseAddress = 'https://coupons-back-mysql-jwt.herokuapp.com',
+    //baseAddress = 'http://localhost:8080',
+    baseAddress = 'https://coupons-back-mysql-jwt.herokuapp.com',
 
     allCoupons = '/',
     allCustomers = '/customers',
