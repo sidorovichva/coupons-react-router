@@ -14,6 +14,8 @@
     letter-spacing: 2px;
     border: none;
     color: black;
+
+    background-color: white;
 }
 
 .DateInput > input:hover {
@@ -30,9 +32,3 @@
     font-size: 0.75rem;
     color: black;
 }
-
-/*.check {*/
-/*    height: 80%;*/
-/*    position: absolute;*/
-/*    right: -2rem;*/
-/*}*/
