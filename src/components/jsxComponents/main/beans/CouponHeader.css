@@ -14,40 +14,12 @@
     display: flex;
 }
 
-.CouponHeader > .title{
-    width: 20%;
+.CouponHeader > .title, .description, .endDate, .price {
     display: flex;
     flex-direction:row;
     align-items: center;
     position: relative;
-}
-
-.CouponHeader > .description{
-    width: 35%;
-    display: flex;
-    flex-direction:row;
-    align-items: center;
-    position: relative;
-}
-
-.CouponHeader > .endDate{
-    width: 15%;
-    display: flex;
-    flex-direction:row;
-    align-items: center;
-    position: relative;
-}
-
-.CouponHeader > .price{
-    width: 15%;
-    display: flex;
-    flex-direction:row;
-    align-items: center;
-    position: relative;
-}
-
-.CouponHeader > .actions {
-    width: 15%;
+    font-size: 0.8rem;
 }
 
 .price, .endDate, .title, .description > svg {
@@ -58,3 +30,45 @@
     padding: 0.5rem;
     margin: 0.5rem 0.5rem 0.5rem 0;
 }
+
+@media screen and (max-width: 759px) {
+    .CouponHeader {
+        justify-content: space-evenly;
+    }
+
+    .CouponHeader > .actions {
+        display: none;
+    }
+
+    .columnTitle {
+        font-size: 1rem;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .CouponHeader > .title{
+        width: 20%;
+    }
+
+    .CouponHeader > .description{
+        width: 30%;
+    }
+
+    .CouponHeader > .endDate{
+        width: 20%;
+    }
+
+    .CouponHeader > .price{
+        width: 15%;
+    }
+
+    .CouponHeader > .actions {
+        width: 15%;
+    }
+
+
+}
+
+

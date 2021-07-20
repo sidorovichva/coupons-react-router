@@ -22,11 +22,11 @@
 }
 
 .Coupon > .description{
-    width: 35%;
+    width: 30%;
 }
 
 .Coupon > .endDate{
-    width: 15%;
+    width: 20%;
 }
 
 .Coupon > .price{
