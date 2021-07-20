@@ -8,18 +8,19 @@
     position: relative;
 }
 
-input {
-    width: 100%;
-}
+/*input {*/
+/*    width: 100%;*/
+/*}*/
 
 select {
     font-size: 0.75rem;
     padding: 0.5rem;
     width: 100%;
     border: none;
-
     text-transform: uppercase;
     letter-spacing: 2px;
+
+    background-color: white;
 }
 
 select:hover {

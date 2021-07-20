@@ -39,7 +39,7 @@ const DateInput: React.FC<Props> = ({
                 <input
                     className={ className }
                     type="date"
-                    //placeholder={ placeholder === undefined ? '' : placeholder }
+                    placeholder={ placeholder === undefined ? '' : placeholder }
                     value={ returnValue }
                     onChange={(e) => setReturnValue(e.target.value)}
                 />
@@ -52,7 +52,7 @@ const DateInput: React.FC<Props> = ({
                 <input
                     className={ className }
                     type="date"
-                    //placeholder={ placeholder === undefined ? '' : placeholder }
+                    placeholder={ placeholder === undefined ? '' : placeholder }
                     value={ returnValue }
                     onChange={(e) => setReturnValue(e.target.value)}
                     required

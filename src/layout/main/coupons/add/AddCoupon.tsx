@@ -78,12 +78,14 @@ const AddCoupon = (): JSX.Element => {
                 <DateInput
                     {...props}
                     className={field4}
+                    placeholder="Sales start date"
                 />
             </div>
             <div>
                 <DateInput
                     {...props}
                     className={field5}
+                    placeholder="Sales end date"
                     isCorrect={isStartBeforeEnd}
                 />
             </div>
