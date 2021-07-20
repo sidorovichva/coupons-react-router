@@ -8,9 +8,11 @@
 }
 
 .TextFilter > input {
-    font-size: 1rem;
+    font-size: 0.8rem;
     width: 100%;
     border: 2px solid green;
+    padding-left: 0.25rem;
+
 }
 
 .TextFilter > input:focus {

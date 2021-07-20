@@ -33,16 +33,18 @@
     color: black;
 }
 
-.placeHolder {
+.DateInput > .placeHolder {
     position: absolute;
     top: 3px;
     left: 3px;
+    bottom: 3px;
+
 
     font-size: 0.75rem;
     padding-left: 0.45rem;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
-    width: 50%;
+    width: 75%;
     text-transform: uppercase;
     letter-spacing: 2px;
     border: none;
@@ -52,5 +54,4 @@
     align-items: flex-start;
 
     pointer-events: none;
-
 }

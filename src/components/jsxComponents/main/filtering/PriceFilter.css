@@ -1,16 +1,17 @@
 .PriceFilter {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 125%;
     appearance: none;
     position: absolute;
     bottom: -1rem;
 }
 
 .PriceFilter > input {
-    font-size: 1rem;
+    font-size: 0.8rem;
     width: 100%;
     border: 2px solid green;
+    padding-left: 0.25rem;
 }
 
 .PriceFilter > input:focus {

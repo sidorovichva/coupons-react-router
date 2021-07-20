@@ -32,10 +32,14 @@ const DateFilter: React.FC<Props> = ({
             <input
                 onMouseOut={ handleMouseOut }
                 className={ className }
+                autoFocus={true}
                 type="date"
                 value={ returnValue }
                 onChange={(e) => setReturnValue(e.target.value)}
             />
+            <div className="placeHolder" >
+                {returnValue === '' ? 'end date' : returnValue}
+            </div>
         </div>
     )
 };
