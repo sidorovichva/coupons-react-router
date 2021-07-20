@@ -6,6 +6,8 @@ import ConfigureStore from "../../../../redux/StoreConfig";
 import {resetAll, resetPressEnter} from "../../../../redux/PressEnterSlice";
 import DateFilter from "../filtering/DateFilter";
 import TextFilter from "../filtering/TextFilter";
+import ArrowDown from "../../icons/ArrowDown";
+import ColumnTitle from "./header/ColumnTitle";
 
 interface Props {
     activeParameter: number
@@ -56,8 +58,6 @@ const CouponHeader: React.FC<Props> = ({
         dispatch(resetAll());
     };
 
-    const doNothing = () => {};
-
     useEffect(() => {
         setTitle(false);
         dispatch(resetPressEnter());
@@ -81,67 +81,23 @@ const CouponHeader: React.FC<Props> = ({
     return (
         <div className="CouponHeader">
             <div className="title">
-                <svg viewBox="0 0 24 24" onClick={ handleTitleClick }>
-                    <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M7,10L12,15L17,10H7Z" />
-                </svg>
-                <div
-                    className="columnTitle"
-                    style={activeParameter === 1 ? {
-                        backgroundColor: "green",
-                        color: "white"
-                    } : {
-                        backgroundColor: "inherit"
-                    }}
-                    onClick={ activeParameter === 1 ? handleResetAll : doNothing }
-                >Title</div>
+                <ArrowDown func={ handleTitleClick }/>
+                <ColumnTitle func={ handleResetAll } text="Title" number={1} activeParam={activeParameter} />
                 {title && <TextFilter className="titleSearch"/>}
             </div>
             <div className="description">
-                <svg viewBox="0 0 24 24" onClick={ handleDescriptionClick }>
-                    <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M7,10L12,15L17,10H7Z" />
-                </svg>
-                <div
-                    className="columnTitle"
-                    style={activeParameter === 2 ? {
-                        backgroundColor: "green",
-                        color: "white"
-                    } : {
-                        backgroundColor: "inherit"
-                    }}
-                    onClick={ activeParameter === 2 ? handleResetAll : doNothing }
-                >Description</div>
+                <ArrowDown func={ handleDescriptionClick }/>
+                <ColumnTitle func={ handleResetAll } text="Description" number={2} activeParam={activeParameter} />
                 {description && <TextFilter className="descriptionSearch"/>}
             </div>
             <div className="endDate">
-                <svg viewBox="0 0 24 24" onClick={ handleEndDateClick }>
-                    <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M7,10L12,15L17,10H7Z" />
-                </svg>
-                <div
-                    className="columnTitle"
-                    style={activeParameter === 3 ? {
-                        backgroundColor: "green",
-                        color: "white"
-                    } : {
-                        backgroundColor: "inherit"
-                    }}
-                    onClick={ activeParameter === 3 ? handleResetAll : doNothing }
-                >Expiration</div>
+                <ArrowDown func={ handleEndDateClick }/>
+                <ColumnTitle func={ handleResetAll } text="Expiration" number={3} activeParam={activeParameter} />
                 {endDate && <DateFilter className="endDateSearch"/>}
             </div>
             <div className="price">
-                <svg viewBox="0 0 24 24" onClick={ handlePriceClick }>
-                    <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M7,10L12,15L17,10H7Z" />
-                </svg>
-                <div
-                    className="columnTitle"
-                    style={activeParameter === 4 ? {
-                        backgroundColor: "green",
-                        color: "white"
-                    } : {
-                        backgroundColor: "inherit"
-                    }}
-                    onClick={ activeParameter === 4 ? handleResetAll : doNothing }
-                >Price</div>
+                <ArrowDown func={ handlePriceClick }/>
+                <ColumnTitle func={ handleResetAll } text="Price" number={4} activeParam={activeParameter} />
                 {price && <PriceFilter className="maxPrice"/>}
             </div>
             <div className="actions">Actions</div>
