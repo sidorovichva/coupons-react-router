@@ -7,7 +7,8 @@ const About = (): JSX.Element => {
 
     return (
         <div className="About">
-            <h3>About the <a className="letter">C</a>oupon <a className="letter">M</a>anaging <a className="letter">S</a>ystem project:</h3>
+            {/*<h3>About the <a className="letter">C</a>oupon <a className="letter">M</a>anaging <a className="letter">S</a>ystem project:</h3>*/}
+            <h3>About the Coupon Managing System project:</h3>
             <p>The project imitates platform for selling and buying coupons and consists of servlet MySQL server deployed on Heroku
                 and a single-page web-site deployed on Netlify. Authentication implemented through JWT token.</p>
             <h4>Technologies used: </h4>

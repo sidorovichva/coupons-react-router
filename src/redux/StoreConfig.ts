@@ -7,6 +7,7 @@ import ResponseStatusReducer from "./ResponseStatusSlice"
 import HistoryPushReducer from "./HistoryPushSlice"
 import UpdateBeanReducer from "./UpdateBeanSlice";
 import UniqueIndexReducer from "./UniqueIndexSlice";
+import PressEnterReducer from "./PressEnterSlice";
 
 export default configureStore({
     reducer: {
@@ -17,6 +18,7 @@ export default configureStore({
         ResponseStatusSlice: ResponseStatusReducer,
         HistoryPushSlice: HistoryPushReducer,
         UpdateBeanSlice: UpdateBeanReducer,
-        UniqueIndexSlice: UniqueIndexReducer
+        UniqueIndexSlice: UniqueIndexReducer,
+        PressEnterSlice: PressEnterReducer
     }
 });

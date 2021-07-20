@@ -1,0 +1,60 @@
+.CouponHeader {
+    height: 1.5rem;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    background-color: inherit;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-bottom: 4px solid green;
+}
+
+.CouponHeader > div{
+    border-bottom: none;
+    display: flex;
+}
+
+.CouponHeader > .title{
+    width: 20%;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    position: relative;
+}
+
+.CouponHeader > .description{
+    width: 35%;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    position: relative;
+}
+
+.CouponHeader > .endDate{
+    width: 15%;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    position: relative;
+}
+
+.CouponHeader > .price{
+    width: 15%;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    position: relative;
+}
+
+.CouponHeader > .actions {
+    width: 15%;
+}
+
+.price, .endDate, .title, .description > svg {
+    cursor: pointer;
+}
+
+.columnTitle {
+    padding: 0.5rem;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+}

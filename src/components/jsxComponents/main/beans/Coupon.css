@@ -1,4 +1,4 @@
-.CouponRep {
+.Coupon {
     height: 1.5rem;
     display: flex;
     flex-direction:row; 
@@ -8,32 +8,32 @@
     margin: 0.5rem;
 }
 
-.CouponRep:hover {
+.Coupon:hover {
     box-shadow: 0.2rem 0.2rem 0.2rem green;
 }
 
-.CouponRep > div{
+.Coupon > div{
     border-bottom: none;
     display: flex;
 }
 
-.CouponRep > .title{
+.Coupon > .title{
     width: 20%;
 }
 
-.CouponRep > .description{
+.Coupon > .description{
     width: 35%;
 }
 
-.CouponRep > .endDate{
+.Coupon > .endDate{
     width: 15%;
 }
 
-.CouponRep > .price{
+.Coupon > .price{
     width: 15%;
 }
 
-.CouponRep > .actions {
+.Coupon > .actions {
     width: 15%;
     height: 100%;
     font-weight: bold;
@@ -89,7 +89,7 @@
 }
 
 @media screen and (max-width: 759px) {
-    .CouponRep {
+    .Coupon {
         height: 8rem;
         justify-content: space-between;
         display: flex;
@@ -100,7 +100,7 @@
         margin: 0.5rem;
     }
 
-    .CouponRep > div {
+    .Coupon > div {
         width: 100%;
         height: 100%;
         display: flex;
@@ -108,27 +108,27 @@
         justify-content: space-evenly;
     }
 
-    .CouponRep > .title{
+    .Coupon > .title{
         height: 20%;
         width: 100%;
     }
 
-    .CouponRep > .description{
+    .Coupon > .description{
         height: 20%;
         width: 100%;
     }
 
-    .CouponRep > .endDate{
+    .Coupon > .endDate{
         height: 20%;
         width: 100%;
     }
 
-    .CouponRep > .price{
+    .Coupon > .price{
         height: 20%;
         width: 100%;
     }
 
-    .CouponRep > .actions {
+    .Coupon > .actions {
         height: 20%;
         font-size: 1rem;
         font-weight: bold;

@@ -1,67 +1,46 @@
-import './CouponRep.css';
+import './Coupon.css';
 import {CouponInt} from "../../../../interfaces/CouponInt";
 import {useLocation, Link} from "react-router-dom";
-import ServerRequest from "../../../logicComponents/ServerRequest";
-import {ServerURL} from "../../../../enums/ServerURL";
 import {ClientURL} from "../../../../enums/ClientURL";
-import DeleteBean from "../../../logicComponents/DeleteBean";
 import UpdateBean from "../../../logicComponents/UpdateBean";
-import useUniqueIndex from "../../../../hooks/useUniqueIndex";
 
-const CouponRep = (coupon: CouponInt) => {
+const Coupon = (coupon: CouponInt) => {
 
     const location = useLocation().pathname
 
-    //const { randomGenerator } = useUniqueIndex();
-
     const { passBeanToUpdate } = UpdateBean(coupon);
 
-    // const { handleDelete, isToDelete, deleteLink, axiosDelete} = DeleteBean(
-    //     coupon.id,
-    //     ServerURL.deleteCoupon,
-    //     ClientURL.companyCoupons,
-    //     ClientURL.companyCoupons
-    // )
-
     return (
-        //isToDelete ? <ServerRequest method={axiosDelete} link={deleteLink} /> :
-            //isToBuy ? <div></div> :
-                <div className="CouponRep">
-                    <div className="title">{coupon.title}</div>
-                    <div className="description">{coupon.description}</div>
-                    <div className="endDate">{coupon.endDate}</div>
-                    <div className="price">{coupon.price}</div>
-                    {(location === ClientURL.notCustomerCoupons || location === ClientURL.companyCoupons) && <div className="actions">
-                        {location === ClientURL.notCustomerCoupons &&
-                            <Link
-                                className="Link"
-                                to={ ClientURL.buyCoupon + `/${coupon.id}` }
-                                //onClick={ randomGenerator }
-                            >Buy</Link>}
-                        {location === ClientURL.companyCoupons &&
-                            <Link
-                                className="Link"
-                                to={ ClientURL.updateCoupon }
-                                onClick={ passBeanToUpdate }
-                            >Update</Link>}
-                        {location === ClientURL.companyCoupons &&
-                            // <div
-                            //     className="delete"
-                            //     onClick={ handleDelete }
-                            // >Delete</div>}
-                            <Link
-                                className="Link"
-                                to={ ClientURL.deleteCoupon + `/${coupon.id}` }
-                            >Delete</Link>}
-                    </div>}
-                    {/*{isToDelete && <ServerRequest method={axiosDelete} link={deleteLink} />}*/}
-                </div>
+        <div className="Coupon">
+            <div className="title">{coupon.title}</div>
+            <div className="description">{coupon.description}</div>
+            <div className="endDate">{coupon.endDate}</div>
+            <div className="price">{coupon.price}&nbsp;&#8362;</div>
+            {(location === ClientURL.notCustomerCoupons || location === ClientURL.companyCoupons) && <div className="actions">
+                {location === ClientURL.notCustomerCoupons &&
+                    <Link
+                        className="Link"
+                        to={ ClientURL.buyCoupon + `/${coupon.id}` }
+                    >Buy</Link>}
+                {location === ClientURL.companyCoupons &&
+                    <Link
+                        className="Link"
+                        to={ ClientURL.updateCoupon }
+                        onClick={ passBeanToUpdate }
+                    >Update</Link>}
+                {location === ClientURL.companyCoupons &&
+                    <Link
+                        className="Link"
+                        to={ ClientURL.deleteCoupon + `/${coupon.id}` }
+                    >Delete</Link>}
+            </div>}
+        </div>
     );
 }
 
-export default CouponRep;
+export default Coupon;
 
-// import './CouponRep.css';
+// import './Coupon.css';
 // import {CouponInt} from "../../../../interfaces/CouponInt";
 // import {useLocation, Link} from "react-router-dom";
 // import ServerRequest from "../../../logicComponents/ServerRequest";
@@ -71,7 +50,7 @@ export default CouponRep;
 // import UpdateBean from "../../../logicComponents/UpdateBean";
 // import BuyCoupon from "../../../logicComponents/BuyCoupon";
 //
-// const CouponRep = (coupon: CouponInt) => {
+// const Coupon = (coupon: CouponInt) => {
 //
 //     const location = useLocation().pathname
 //
@@ -96,7 +75,7 @@ export default CouponRep;
 //     return (
 //         isToDelete ? <ServerRequest method={axiosDelete} link={deleteLink} /> :
 //             isToBuy ? <ServerRequest method={axiosBuy} link={buyLink} body={body} /> :
-//                 <div className="CouponRep">
+//                 <div className="Coupon">
 //                     <div className="title">{coupon.title}</div>
 //                     <div className="description">{coupon.description}</div>
 //                     <div className="endDate">{coupon.endDate}</div>
@@ -118,4 +97,4 @@ export default CouponRep;
 //     );
 // }
 //
-// export default CouponRep;
+// export default Coupon;
