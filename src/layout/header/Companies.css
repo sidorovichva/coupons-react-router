@@ -14,18 +14,6 @@
     background: green;
 }
 
-.Link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.dropdown {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-}
-
 .Companies > ul > .Link {
     position: relative;
     cursor: pointer;
@@ -35,17 +23,19 @@
     font-size: 0.8rem;
 }
 
-.dropdown {
+.Companies > .dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 0;
-    background: grey;
+    background: gray;
     display: none;
 }
 
-.dropdown .Link:hover {
+.Companies > .dropdown .Link:hover {
     background: green;
 }
 

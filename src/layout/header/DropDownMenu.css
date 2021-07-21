@@ -14,33 +14,30 @@
     background: green;
 }
 
-.dropdown {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-}
-
 .DropDownMenu > ul > .Link {
     position: relative;
     cursor: pointer;
     float: left;
     width: 100%;
-    height: 50px;
-    line-height: 50px;
+    height: 3rem;
+    font-size: 0.8rem;
+    line-height: 3rem;
 }
 
-.dropdown {
+.DropDownMenu > .dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /*display: inline-block;*/
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 0;
     background: grey;
     display: none;
 }
 
-.dropdown .Link:hover {
+.DropDownMenu > .dropdown .Link:hover {
     background: green;
 }
 

@@ -14,13 +14,6 @@
     background: green;
 }
 
-.dropdown {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-}
-
 .Coupons > ul > .Link {
     position: relative;
     cursor: pointer;
@@ -30,8 +23,7 @@
     font-size: 0.8rem;
 }
 
-
-.dropdown > .Link {
+.Coupons > .dropdown > .Link {
     position: relative;
     cursor: pointer;
     float: left;
@@ -40,17 +32,19 @@
     background-color: inherit;
 }
 
-.dropdown {
+.Coupons > .dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 0;
     background: grey;
     display: none;
 }
 
-.dropdown .Link:hover {
+.Coupons > .dropdown .Link:hover {
     background: green;
 }
 

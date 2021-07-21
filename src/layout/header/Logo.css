@@ -5,14 +5,9 @@
     background-color: inherit;
     align-items: center;
     justify-content: center;
-    
     cursor: pointer;
     position: relative;
-
     display: flex;
-    justify-content: center;
-    align-items: center;
-
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
@@ -29,39 +24,34 @@
     font-weight: bold;
 }
 
-.dropdown {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-}
-
 .Logo > ul > .Link {
     position: relative;
     cursor: pointer;
     float: left;
     width: 100%;
-    height: 50px;
-    line-height: 50px;
+    height: 3rem;
+    font-size: 0.8rem;
+    line-height: 3rem;
 }
 
-.dropdown {
+.Logo > .dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 0;
     background: grey;
     display: none;
 }
 
-.dropdown .Link:hover {
+.Logo > .dropdown .Link:hover {
     background: green;
 }
 
 .Logo:hover .dropdown{
     display: block;
-    /*perspective: 1000px;*/
 }
 
 .Logo .Link:hover > .dropdown .Link{
