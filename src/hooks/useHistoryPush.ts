@@ -12,7 +12,7 @@ const useHistoryPush = (
     dispatch(setHistoryPushLink({
         historyPushSuccessValue: pushSuccess,
         historyPushFailValue: pushFail
-    }))
+    }));
 }
 
 export default useHistoryPush;

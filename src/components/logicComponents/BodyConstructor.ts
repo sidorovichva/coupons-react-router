@@ -12,12 +12,11 @@ const BodyConstructor = (
         args.preventDefault();
         let temp = '';
         for (let i = 0; i < fields.length; i++) {
-            console.log(typeof values[i] + " " + values[i])
             if (typeof values[i] === "number" || values[i].startsWith('{"id":')) temp += (`"${fields[i]}":${values[i]}`)
-            else temp += (`"${fields[i]}":"${values[i]}"`)
-            if (i < fields.length - 1) temp += ','
+            else temp += (`"${fields[i]}":"${values[i]}"`);
+            if (i < fields.length - 1) temp += ',';
         }
-        setBody('{' + temp + '}')
+        setBody('{' + temp + '}');
         setIsSubmitted(true);
     }
     

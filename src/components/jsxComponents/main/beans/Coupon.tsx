@@ -6,7 +6,7 @@ import UpdateBean from "../../../logicComponents/UpdateBean";
 
 const Coupon = (coupon: CouponInt) => {
 
-    const location = useLocation().pathname
+    const location = useLocation().pathname;
 
     const { passBeanToUpdate } = UpdateBean(coupon);
 

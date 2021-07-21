@@ -11,6 +11,7 @@ import Customers from "./header/Customers";
 import Coupons from "./header/Coupons";
 import DropDownMenu from "./header/DropDownMenu";
 import Login from "./header/Login";
+import {Role} from "../enums/Role";
 
 const Header = (): JSX.Element => {
 
@@ -24,7 +25,7 @@ const Header = (): JSX.Element => {
             <Logo />
             <ThemeSwitch />
             <Companies />
-            {role === 'ADMINISTRATOR' && <Customers />}
+            {role === Role.ADMINISTRATOR && <Customers />}
             <Coupons />
             <DropDownMenu />
             {email !== '' && <User />}

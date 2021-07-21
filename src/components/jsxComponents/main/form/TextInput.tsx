@@ -28,14 +28,14 @@ const TextInput: React.FC<Props> = ({
     const [matches, setMatches] = useState(false);
 
     useEffect(() => {
-        const innerBoolean = regex === undefined ? true : !!returnValue.toLowerCase().match(regex)
-        setMatches(innerBoolean)
+        const innerBoolean = regex === undefined ? true : !!returnValue.toLowerCase().match(regex);
+        setMatches(innerBoolean);
         dispatch(setTextValue({
             textInputValue: type === 'email' ? returnValue.toLowerCase() : returnValue,
             fieldValue: className,
             matchesValue: innerBoolean
         }));
-    }, [returnValue] )
+    }, [returnValue] );
 
     if (required !== true) {
         return(
@@ -49,7 +49,7 @@ const TextInput: React.FC<Props> = ({
                 />
                 {matches && (isCorrect || isCorrect === undefined) && <Check />}
             </div>
-        )
+        );
     } else {
         return(
             <div className="TextInput">
@@ -63,8 +63,8 @@ const TextInput: React.FC<Props> = ({
                 />
                 {matches && (isCorrect || isCorrect === undefined) && <Check />}
             </div>
-        )
+        );
     }
-};
+}
 
 export default TextInput;

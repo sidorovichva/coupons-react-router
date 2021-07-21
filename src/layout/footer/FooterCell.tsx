@@ -12,7 +12,7 @@ const FooterCell: React.FC<Props> = ({
     num
 }) => {
 
-    const user = useSavedUsers(num)
+    const user = useSavedUsers(num);
 
     return (
         <div className={className}>
@@ -21,6 +21,6 @@ const FooterCell: React.FC<Props> = ({
             <div>pass:"{user.pass}"</div>
         </div>
     );
-};
+}
 
 export default FooterCell;

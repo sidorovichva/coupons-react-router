@@ -40,7 +40,7 @@ const UpdateCustomer = (): JSX.Element => {
             value3 === '' ? customerBean.email : value3,
             value4 === '' ? 'NoNeedToUpdate' : value4
         ],
-    )
+    );
 
     return (
         <form className="UpdateCustomer" onSubmit={ handleSubmit }>

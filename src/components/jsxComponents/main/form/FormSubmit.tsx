@@ -21,15 +21,14 @@ const FormSubmit: React.FC<Props> = ({
     useEffect(() => {
         if (checksArray !== undefined) {
             for (let i = 0; i < checksArray.length; i++) {
-                console.log(i + ": " + checksArray[i])
-                if (checksArray[i] === false) {
+                if (!checksArray[i]) {
                     setIsPassed(false);
                     break;
                 }
                 if (i === checksArray.length - 1) setIsPassed(true);
             }
         }
-    }, [checksArray])
+    }, [checksArray]);
 
     return (
         <div className="FormSubmit">
@@ -48,6 +47,6 @@ const FormSubmit: React.FC<Props> = ({
             />
         </div>
     );
-};
+}
 
 export default FormSubmit;

@@ -13,7 +13,6 @@ const useFoldMenu = () => {
         setTimeout(resetFolding, 500);
     }
 
-
     return { foldMenu, isFolded };
 }
 

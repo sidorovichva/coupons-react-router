@@ -7,7 +7,6 @@ const About = (): JSX.Element => {
 
     return (
         <div className="About">
-            {/*<h3>About the <a className="letter">C</a>oupon <a className="letter">M</a>anaging <a className="letter">S</a>ystem project:</h3>*/}
             <h3>About the Coupon Managing System project:</h3>
             <p>The project imitates platform for selling and buying coupons and consists of servlet MySQL server deployed on Heroku
                 and a single-page web-site deployed on Netlify. Authentication implemented through JWT token.</p>
@@ -15,6 +14,10 @@ const About = (): JSX.Element => {
             <p>Java, TypeScript, CSS, HTML.</p>
             <p>Spring Boot, Spring JPA, Spring Web, Spring Security.</p>
             <p>React.js, Redux-Toolkit, React-Router, React-Query, Axios.</p>
+            <h4>User can have 4 different roles: Administrator, Company, Customer and Guest</h4>
+            <p>In a nutshell, Customer can buy coupons that were issued by Companies.
+                Admin can manage Users but not coupons, Guest can logIn or register.
+                There are one embedded profile for each role with login information in the bottom of the screen, so you can try all their functionalities.</p>
             <h4>DB structure:</h4>
             <img src={ schema } alt="DB schema"/>
 
@@ -27,9 +30,6 @@ const About = (): JSX.Element => {
                     <a href="https://www.hackerrank.com/sidorovichva" target="_blank">HackerRank</a>
                 </div>
             </div>
-
-            <p></p>
-
         </div>
     );
 }

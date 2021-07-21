@@ -21,10 +21,10 @@ const DateFilter: React.FC<Props> = ({
             textInputValue: returnValue,
             fieldValue: className,
         }));
-    }, [returnValue])
+    }, [returnValue]);
 
     const handleMouseOut = () => {
-        dispatch(endDateEntered())
+        dispatch(endDateEntered());
     }
 
     return(
@@ -41,7 +41,7 @@ const DateFilter: React.FC<Props> = ({
                 {returnValue === '' ? 'end date' : returnValue}
             </div>
         </div>
-    )
-};
+    );
+}
 
 export default DateFilter;

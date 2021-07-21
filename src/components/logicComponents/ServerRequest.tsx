@@ -29,6 +29,6 @@ const ServerRequest: React.FC<Props> = ({
 
         </div>
     );
-};
+}
 
 export default ServerRequest;

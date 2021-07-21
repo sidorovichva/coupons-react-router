@@ -15,7 +15,6 @@ interface Theme {
 
 export const ThemeContext = createContext({} as ThemeContextInterface);
 
-
 class ThemeContextProvider extends Component {
     state = {
         isLightTheme: true,

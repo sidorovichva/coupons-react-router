@@ -25,16 +25,16 @@ const PriceFilter: React.FC<Props> = ({
             numericInputValue: returnValue,
             fieldValue: className,
         }));
-    }, [returnValue])
+    }, [returnValue]);
 
     const handleEnter = (event: React.KeyboardEvent<HTMLDivElement>) => {
         if (event.key === 'Enter') {
-            dispatch(priceEntered())
+            dispatch(priceEntered());
         }
     }
 
     const handleMouseOut = () => {
-        dispatch(priceEntered())
+        dispatch(priceEntered());
     }
 
     return(
@@ -51,7 +51,7 @@ const PriceFilter: React.FC<Props> = ({
                 onChange={(e) => setReturnValue(parseInt((e.target.value) || ''))}
             />
         </div>
-    )
-};
+    );
+}
 
 export default PriceFilter;

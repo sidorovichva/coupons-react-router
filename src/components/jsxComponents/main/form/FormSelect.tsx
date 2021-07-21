@@ -7,6 +7,7 @@ import {ServerURL} from "../../../../enums/ServerURL";
 import Check from "../../icons/Check";
 import {useQuery} from "react-query";
 import FetchData from "../../../logicComponents/FetchData";
+import {ReactQuery} from "../../../../enums/ReactQuery";
 
 interface Props {
     className: string,
@@ -25,7 +26,7 @@ const FormSelect: React.FC<Props> = ({
     const {data: array, status} = useQuery(
         ['getAllCategories', ServerURL.allCategories],
         () => FetchData(ServerURL.allCategories),
-        {retryDelay: 2000}
+        {retryDelay: ReactQuery.RETRY_DELAY}
     );
 
     const [returnValue, setReturnValue] = useState('');
@@ -33,13 +34,13 @@ const FormSelect: React.FC<Props> = ({
 
     useEffect(() => {
         const innerBoolean = returnValue !== '';
-        setMatches(innerBoolean)
+        setMatches(innerBoolean);
         dispatch(setTextValue({
             textInputValue: JSON.stringify(returnValue),
             fieldValue: className,
             matchesValue: innerBoolean
         }));
-    }, [returnValue])
+    }, [returnValue]);
 
     return (
         <div className="FormSelect">
@@ -57,6 +58,6 @@ const FormSelect: React.FC<Props> = ({
             {matches && (isCorrect || isCorrect === undefined) && <Check />}
         </div>
     );
-};
+}
 
 export default FormSelect;

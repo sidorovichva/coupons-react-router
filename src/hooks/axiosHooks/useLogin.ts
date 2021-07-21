@@ -40,9 +40,11 @@ const useLogin = (body: string) => {
                         emailValue: localStorage.getItem("Username"),
                         roleValue: localStorage.getItem("Role")
                     }))
+
                     history.push(historyPushSuccess);
                     history.go(0);
                 }
+
             })
             .catch((err) => {
                 dispatch(setResponseStatus({

@@ -39,32 +39,32 @@ const CouponHeader: React.FC<Props> = ({
         setPrice(false);
         setEndDate(false);
         setDescription(false);
-    };
+    }
 
     const handleDescriptionClick = () => {
         setDescription(!description);
         setEndDate(false);
         setTitle(false);
         setPrice(false);
-    };
+    }
 
     const handleEndDateClick = () => {
         setEndDate(!endDate);
         setPrice(false);
         setTitle(false);
         setDescription(false);
-    };
+    }
 
     const handlePriceClick = () => {
         setPrice(!price);
         setEndDate(false);
         setTitle(false);
         setDescription(false);
-    };
+    }
 
     const handleResetAll = () => {
         dispatch(resetAll());
-    };
+    }
 
     useEffect(() => {
         setTitle(false);

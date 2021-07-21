@@ -9,7 +9,7 @@ function Logo():JSX.Element {
     const history = useHistory();
 
     const handleHome = () => {
-        history.push(ClientURL.home)
+        history.push(ClientURL.home);
     }
 
     const { foldMenu, isFolded } = useFoldMenu();

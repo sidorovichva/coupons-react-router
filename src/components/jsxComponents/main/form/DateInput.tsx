@@ -25,13 +25,13 @@ const DateInput: React.FC<Props> = ({
 
     useEffect(() => {
         const innerBoolean = Date.parse(returnValue) >= Date.now();
-        setMatches(innerBoolean)
+        setMatches(innerBoolean);
         dispatch(setTextValue({
             textInputValue: returnValue,
             fieldValue: className,
             matchesValue: innerBoolean
         }));
-    }, [returnValue])
+    }, [returnValue]);
 
     if (required !== true) {
         return(
@@ -48,7 +48,7 @@ const DateInput: React.FC<Props> = ({
                     {returnValue === '' ? placeholder : returnValue}
                 </div>
             </div>
-        )
+        );
     } else {
         return(
             <div className="DateInput" >
@@ -66,8 +66,8 @@ const DateInput: React.FC<Props> = ({
                 </div>
             </div>
 
-        )
+        );
     }
-};
+}
 
 export default DateInput;

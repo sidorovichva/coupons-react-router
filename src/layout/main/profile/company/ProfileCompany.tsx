@@ -3,6 +3,7 @@ import './ProfileCompany.css';
 import ProfileElement from "../../../../components/jsxComponents/profile/ProfileElement";
 import {useQuery} from "react-query";
 import FetchData from "../../../../components/logicComponents/FetchData";
+import {ReactQuery} from "../../../../enums/ReactQuery";
 
 interface Props {
     link: string
@@ -13,7 +14,7 @@ const ProfileCompany: React.FC<Props> = ({link}): JSX.Element => {
     const {data: company, status} = useQuery(
         ['getCompany', link],
         () => FetchData(link),
-        {retryDelay: 2000}
+        {retryDelay: ReactQuery.RETRY_DELAY}
     );
 
     return (

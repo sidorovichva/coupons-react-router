@@ -17,6 +17,6 @@ const LogOut = () => {
     };
 
     return { handleLogout };
-};
+}
 
 export default LogOut;

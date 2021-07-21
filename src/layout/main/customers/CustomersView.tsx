@@ -4,6 +4,7 @@ import Customer from "../../../components/jsxComponents/main/beans/Customer";
 import {CustomerInt} from "../../../interfaces/CustomerInt";
 import {useQuery} from "react-query";
 import FetchData from "../../../components/logicComponents/FetchData";
+import {ReactQuery} from "../../../enums/ReactQuery";
 
 interface Props {
     link: string
@@ -12,7 +13,7 @@ interface Props {
 const CustomersView: React.FC<Props> = ({link}): JSX.Element => {
 
     const { data: customers, status } = useQuery([link, link], () => FetchData(link), {
-        retryDelay: 10000
+        retryDelay: ReactQuery.RETRY_DELAY
     });
 
     return (

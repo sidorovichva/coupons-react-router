@@ -4,6 +4,7 @@ import {CompanyInt} from "../../../interfaces/CompanyInt";
 import Company from "../../../components/jsxComponents/main/beans/Company";
 import {useQuery} from "react-query";
 import FetchData from "../../../components/logicComponents/FetchData";
+import {ReactQuery} from "../../../enums/ReactQuery";
 
 interface Props {
     link: string
@@ -12,7 +13,7 @@ interface Props {
 const CompaniesView: React.FC<Props> = ({link}): JSX.Element => {
 
     const { data: companies, status } = useQuery([link, link], () => FetchData(link), {
-        retryDelay: 10000
+        retryDelay: ReactQuery.RETRY_DELAY
     });
 
     return (
@@ -27,6 +28,6 @@ const CompaniesView: React.FC<Props> = ({link}): JSX.Element => {
             )}
         </div>
     );
-};
+}
 
 export default CompaniesView;

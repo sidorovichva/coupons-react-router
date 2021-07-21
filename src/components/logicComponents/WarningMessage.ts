@@ -21,7 +21,7 @@ const WarningMessage = () => {
 
     useEffect(() => {
         if (responseMessage !== '') {
-            deactivateWarning()
+            deactivateWarning();
             setTimeout(activateWarning, flashTime);
             setTimeout(deactivateWarning, warningTime);
         }

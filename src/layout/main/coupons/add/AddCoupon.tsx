@@ -49,7 +49,7 @@ const AddCoupon = (): JSX.Element => {
 
     const props = {
         required: true
-    }
+    };
 
     return (
         <form className="AddCoupon" onSubmit={ handleSubmit }>

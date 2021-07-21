@@ -21,18 +21,18 @@ const TextFilter: React.FC<Props> = ({
             textInputValue: returnValue.toLowerCase(),
             fieldValue: className,
         }));
-    }, [returnValue] )
+    }, [returnValue] );
 
     const handleEnter = (event: React.KeyboardEvent<HTMLDivElement>) => {
         if (event.key === 'Enter') {
-            dispatch(titleEntered())
-            dispatch(descriptionEntered())
+            dispatch(titleEntered());
+            dispatch(descriptionEntered());
         }
     }
 
     const handleMouseOut = () => {
-        dispatch(titleEntered())
-        dispatch(descriptionEntered())
+        dispatch(titleEntered());
+        dispatch(descriptionEntered());
     }
 
     return(
@@ -47,7 +47,7 @@ const TextFilter: React.FC<Props> = ({
                 onChange={(e) => setReturnValue(e.target.value)}
             />
         </div>
-    )
-};
+    );
+}
 
 export default TextFilter;

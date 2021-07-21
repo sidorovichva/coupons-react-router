@@ -14,6 +14,6 @@ const UserIcon: React.FC<Props> = (): JSX.Element => {
                 17V18.1H11.1L13,20H3V17C3,14.34 8.33,13 11,13Z" />
         </svg>
     );
-};
+}
 
 export default UserIcon;

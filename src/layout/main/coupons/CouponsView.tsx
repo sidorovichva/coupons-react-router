@@ -9,6 +9,7 @@ import FormField from "../../../components/logicComponents/FormField";
 import {useDispatch, useSelector} from "react-redux";
 import ConfigureStore from "../../../redux/StoreConfig";
 import {resetPressEnter} from "../../../redux/PressEnterSlice";
+import {ReactQuery} from "../../../enums/ReactQuery";
 
 interface Props {
     link: string
@@ -17,7 +18,8 @@ interface Props {
 const CouponsView: React.FC<Props> = ({link}): JSX.Element => {
 
     const {data: coupons, status} = useQuery([link, link], () => FetchData(link), {
-        retryDelay: 10000
+        retryDelay: ReactQuery.RETRY_DELAY,
+        retry: 10
     });
 
     const { all } = useSelector((state) => ConfigureStore.getState().PressEnterSlice);
@@ -54,28 +56,29 @@ const CouponsView: React.FC<Props> = ({link}): JSX.Element => {
 
     useEffect(() => {
         setTitle(value1);
-        setActiveParameter(value1 !== '' ? 1 : 0)
+        setActiveParameter(value1 !== '' ? 1 : 0);
     }, [value1]);
 
     useEffect(() => {
         setDescription(value2);
-        setActiveParameter(value2 !== '' ? 2 : 0)
+        setActiveParameter(value2 !== '' ? 2 : 0);
     }, [value2]);
 
     useEffect(() => {
         setDate(value3);
-        setActiveParameter(value3 !== '' ? 3 : 0)
+        setActiveParameter(value3 !== '' ? 3 : 0);
     }, [value3]);
 
     useEffect(() => {
         setPrice(value4);
-        setActiveParameter(value4 > 0 ? 4 : 0)
+        setActiveParameter(value4 > 0 ? 4 : 0);
     }, [value4]);
 
     return (
         <div className="CouponsGeneral">
             {status === 'error' && <div className="message">Error...</div>}
-            {status === 'loading' && <div className="message">Loading...</div>}
+            {status === 'loading' && <div className="message">Loading... If you just opened the site it can takes up to 20 sec to fetch information first time.
+            This is happening because money wise the server side is uploaded on free Heroku server and it has to get to Up state after being in sleep mode. Thank you! </div>}
             {status === 'success' &&
                 <CouponHeader
                     activeParameter={activeParameter}

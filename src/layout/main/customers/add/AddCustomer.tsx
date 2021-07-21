@@ -36,11 +36,11 @@ const AddCustomer = (): JSX.Element => {
     const { handleSubmit, body, isSubmitted } = BodyConstructor(
         [field1, field2, field3, field4],
         [value1, value2, value3, value4]
-    )
+    );
 
     const props = {
         required: true
-    }
+    };
 
     return (
         <form className="AddCustomer" onSubmit={ handleSubmit }>

@@ -58,7 +58,7 @@ const LoginWindow = (): JSX.Element => {
                     pushFail={historyPushIfFail}
                 />}
         </form>
-    )
+    );
 }
 
 export default LoginWindow;

@@ -29,17 +29,17 @@ const PasswordInput: React.FC<Props> = ({
     const [isExposed, setIsExposed] = useState(false);
 
     useEffect(() => {
-        const innerBoolean = regex === undefined ? true : !!returnValue.toLowerCase().match(regex)
-        setMatches(innerBoolean)
+        const innerBoolean = regex === undefined ? true : !!returnValue.toLowerCase().match(regex);
+        setMatches(innerBoolean);
         dispatch(setTextValue({
             textInputValue: returnValue,
             fieldValue: className,
             matchesValue: innerBoolean
         }));
-    }, [returnValue])
+    }, [returnValue]);
 
     const handleExpose = () => {
-        setIsExposed(!isExposed)
+        setIsExposed(!isExposed);
     }
 
     return(
@@ -61,7 +61,7 @@ const PasswordInput: React.FC<Props> = ({
             {matches && (isCorrect || isCorrect === undefined) && <Check />}
             {isExposed ? <EyeOff func={ handleExpose } /> : <EyeOn func={ handleExpose } />}
         </div>
-    )
-};
+    );
+}
 
 export default PasswordInput;

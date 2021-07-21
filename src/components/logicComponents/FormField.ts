@@ -15,14 +15,14 @@ const FormField = (fieldName: string) => {
             setFieldValue(textInput);
             setIsMatches(matches);
         }
-    }, [textInput])
+    }, [textInput]);
 
     useEffect(() => {
         if (field === fieldName) {
             setNumValue(numericInput);
             setIsMatches(matches);
         }
-    }, [numericInput])
+    }, [numericInput]);
 
     return { textValue, numValue, isMatches };
 }

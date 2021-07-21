@@ -28,11 +28,11 @@ const AddCompany = (): JSX.Element => {
     const { handleSubmit, body, isSubmitted } = BodyConstructor(
         [field1, field2, field3],
         [value1, value2, value3]
-    )
+    );
 
     const props = {
         required: true
-    }
+    };
 
     return (
         <form className="AddCompany" onSubmit={ handleSubmit }>
