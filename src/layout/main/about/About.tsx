@@ -14,7 +14,7 @@ const About = (): JSX.Element => {
             <p>Java, TypeScript, CSS, HTML.</p>
             <p>Spring Boot, Spring JPA, Spring Web, Spring Security.</p>
             <p>React.js, Redux-Toolkit, React-Router, React-Query, Axios.</p>
-            <h4>User can have 4 different roles: Administrator, Company, Customer and Guest</h4>
+            <h4>User can have 4 different roles: Administrator, Company, Customer and Guest:</h4>
             <p>In a nutshell, Customer can buy coupons that were issued by Companies.
                 Admin can manage Users but not coupons, Guest can logIn or register.
                 There are one embedded profile for each role with login information in the bottom of the screen, so you can try all their functionalities.</p>

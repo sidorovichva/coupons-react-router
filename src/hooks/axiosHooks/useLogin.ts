@@ -42,7 +42,7 @@ const useLogin = (body: string) => {
                     }))
 
                     history.push(historyPushSuccess);
-                    history.go(0);
+                    //history.go(0);
                 }
 
             })
