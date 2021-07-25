@@ -77,7 +77,7 @@ const CouponsView: React.FC<Props> = ({link}): JSX.Element => {
     return (
         <div className="CouponsGeneral">
             {status === 'error' && <div className="message">Error...</div>}
-            {status === 'loading' && <div className="message">Loading... If you just opened the site it can takes up to 20 sec to fetch information first time.
+            {status === 'loading' && <div className="message">Loading... If you just opened the site it can take up to 20 sec to fetch information first time.
             This is happening because money wise the server side is uploaded on free Heroku server and it has to get to Up state after being in sleep mode. Thank you! </div>}
             {status === 'success' &&
                 <CouponHeader
